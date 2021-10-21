@@ -1,0 +1,19 @@
+.MySelect{
+    padding: 5px 15px;
+    color: white;
+    font-size: 16px;
+    font-family: "Consolas", serif;
+    font-style: normal;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.MyOption{
+    color: white;
+    font-size: 16px;
+    font-family: "Consolas", serif;
+    font-style: normal;
+    background-color: orangered;
+    cursor: pointer;
+}
