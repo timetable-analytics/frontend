@@ -1,0 +1,17 @@
+.navbar{
+    height: 70px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background: orangered;
+}
+
+.navbar__link{
+    margin-left: 50px;
+    font-family: "Consolas", serif;
+    font-style: normal;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
