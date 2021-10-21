@@ -1,0 +1,25 @@
+
+.card{
+    height: 240px;
+    width: 240px;
+    display: table;
+    align-content: center;
+    color: black;
+    border: black;
+    border-radius: 10px;
+    background-color: bisque;
+}
+
+.text{
+    display:flex;
+    font-family: "Consolas", serif;
+    font-style: normal;
+    font-size: 28px;
+}
+
+.picture{
+    margin-left: 0px;
+    height: 120px;
+    width: 120px;
+    display: flex;
+}
