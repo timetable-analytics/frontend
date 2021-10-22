@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82ef72a4-838b-42fc-a2d7-6364653da87b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/audiencePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/audiencePage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/mainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mainPage.jsx" afterDir="false" />
     </list>
@@ -60,9 +60,9 @@
       <recent name="C:\Users\Egor_Kudryashov\Documents\GitHub\frontend\src\component\UI\Navbar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Egor_Kudryashov\Documents\GitHub\frontend\src\component" />
       <recent name="C:\Users\Egor_Kudryashov\Documents\GitHub\frontend\src\component\UI" />
       <recent name="C:\Users\Egor_Kudryashov\Documents\GitHub\frontend\src\component\UI\sideButton" />
-      <recent name="C:\Users\Egor_Kudryashov\Documents\GitHub\frontend\src\component" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -96,7 +96,7 @@
       <workItem from="1634809401141" duration="10252000" />
       <workItem from="1634841932321" duration="9762000" />
       <workItem from="1634852002092" duration="662000" />
-      <workItem from="1634892677412" duration="1294000" />
+      <workItem from="1634892677412" duration="5050000" />
     </task>
     <servers />
   </component>

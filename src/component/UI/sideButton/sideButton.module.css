@@ -1,0 +1,15 @@
+.openButton{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    background-color: darkblue;
+    border: black;
+}
+
+.closeButton{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    background-color: red;
+    border: black;
+}
