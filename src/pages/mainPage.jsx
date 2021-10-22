@@ -9,15 +9,10 @@ import SideNavbar from "../component/SideNavbar";
 
 const MainPage = () => {
     const router = useHistory();
-    const [visible, setVisible] = useState(false);
 
     return (
         <div>
             <Navbar/>
-            <MyButton onClick={()=> setVisible(true)}>
-                Боковая панель
-            </MyButton>
-            <SideNavbar visible={visible} setVisible={setVisible}/>
 
             <Card style={{marginTop: 50, marginLeft: 250}}  route={()=>{router.push("/main/audiences")}}
                   image={"https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"}

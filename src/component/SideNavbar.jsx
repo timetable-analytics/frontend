@@ -13,10 +13,10 @@ const SideNavbar = ({visible, setVisible}) => {
                 Закрыть панель
             </MyButton>
 
-            <MyButton onClick={()=>{router.push("/main")}}>
+            <MyButton onClick={()=>{router.push("/main"); setVisible(false)}}>
                 Главная
             </MyButton>
-            <MyButton onClick={()=>{router.push("/main/audiences")}}>
+            <MyButton onClick={()=>{router.push("/main/audiences"); setVisible(false)}}>
                 Аудитории
             </MyButton>
             <MyButton>
