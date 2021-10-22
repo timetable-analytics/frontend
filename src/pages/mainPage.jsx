@@ -13,19 +13,23 @@ const MainPage = () => {
             <Navbar/>
 
             <MyButton onClick={()=>{router.push("/main/audiences")}}> Не жми на меня!</MyButton>
-            <Card style={{marginTop: 50, marginLeft: 400}}  route={()=>{router.push("/main/audiences")}}
+            <Card style={{marginTop: 50, marginLeft: 250}}  route={()=>{router.push("/main/audiences")}}
                   image={"https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"}
                   text={"Аудитории"}
             />
-            <Card onClick={()=> true}
-                  image={"https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"}
+            <Card style={{marginTop: 0, marginLeft: 250}}
+                  onClick={()=> true}
                   text={"Преподаватели"}
+                  image={"https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"}
+
             />
-            <Card onClick={()=> true}
+            <Card style={{marginTop: -500, marginLeft: 800}}
+                  onClick={()=> true}
                   image={"https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"}
                   text={"Учебные группы"}
             />
-            <Card onClick={()=> true}
+            <Card style={{marginTop: 0, marginLeft: 800}}
+                  onClick={()=> true}
                   image={"https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"}
                   text={"Дисциплины"}
             />
