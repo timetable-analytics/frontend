@@ -12,22 +12,28 @@ const MainPage = () => {
             <Card style={{marginTop: 50, marginLeft: 250}}  route={()=>{router.push("/main/audiences")}}
                   image={"https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"}
                   text={"Аудитории"}
+                  text1={"info/info/info/info/info \n info/info/info/info/info \n info/info/info/info/info \n info/info/info/info/info \n "}
             />
             <Card style={{marginTop: 0, marginLeft: 250}}
                   onClick={()=> true}
                   text={"Преподаватели"}
                   image={"https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"}
+                  text1={"info/info/info/info/info \n info/info/info/info/info \n info/info/info/info/info \n info/info/info/info/info \n "}
 
             />
             <Card style={{marginTop: -500, marginLeft: 800}}
                   onClick={()=> true}
                   image={"https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"}
                   text={"Учебные группы"}
+                  text1={"info/info/info/info/info \n info/info/info/info/info \n info/info/info/info/info \n info/info/info/info/info \n "}
+
             />
             <Card style={{marginTop: 0, marginLeft: 800}}
                   onClick={()=> true}
                   image={"https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"}
                   text={"Дисциплины"}
+                  text1={"info/info/info/info/info \n info/info/info/info/info \n info/info/info/info/info \n info/info/info/info/info \n "}
+
             />
         </div>
     );
