@@ -11,7 +11,7 @@ const PageRouter = () => {
                     component={route.component}
                     path={route.path}
                     exact={route.exact}
-                    key = {route.path}
+                    key = {route.key}
                 />
             )}
             <Redirect to="/main"/>

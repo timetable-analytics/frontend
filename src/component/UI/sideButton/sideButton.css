@@ -1,9 +1,9 @@
 .openButton{
     height: 50px;
-    width: 50px;
-    display: flex;
-    background-color: darkblue;
-    border: black;
+    width: 80px;
+    border-radius: 30px;
+    background-color: gray;
+    position: static;
 }
 
 .closeButton{

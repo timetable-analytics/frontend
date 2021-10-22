@@ -1,23 +1,19 @@
-import React, {useState} from "react";
+import React from "react";
 import './styles/App.css';
 import PageRouter from "./component/PageRouter";
-import {BrowserRouter, Router} from "react-router-dom";
-import MyButton from "./component/UI/MyButton/MyButton";
-import SideNavbar from "./component/SideNavbar";
+import {BrowserRouter} from "react-router-dom";
+import Navbar from "./component/UI/Navbar/Navbar";
 
 
 function App() {
     /*При добавление новой страницы нужно добавить путь в /routes/routes.js
     * */
-    const [visible, setVisible] = useState(false);
 
   return (
 
     <BrowserRouter>
-        <MyButton onClick={()=> setVisible(true)}>
-            Боковая панель
-        </MyButton>
-        <SideNavbar visible={visible} setVisible={setVisible}/>
+        <Navbar/>
+
         <PageRouter/>
     </BrowserRouter>
   );

@@ -1,41 +1,34 @@
-import React from 'react';
-import MySelect from "../Select/MySelect";
+import React, {useEffect, useState} from 'react';
 import classes from "./Navbar.module.css";
+import SideButton from "../sideButton/sideButton";
+import SideNavbar from "../../SideNavbar";
+import {MyLocation} from "../../../routes/MyLocation";
 
 
 const Navbar = () => {
-    return (
+    const [visible, setVisible] = useState(false);
+    const page = ["Главная","Аудитории","Преподаватели","Учебные группы", "Дисциплины"];
+    const [idPage, setIdPage] = useState("Error");
+
+    let i = MyLocation()
+    useEffect( () => setIdPage(page[i])  ,[idPage, i])
+
+        return (
         <div className={classes.navbar}>
-            <img src="https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"
+            <SideNavbar visible={visible} setVisible={setVisible}/>
+
+            <SideButton onClick={()=> setVisible(true)}/>
+
+            <img style={{marginLeft: 30}} src="https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"
                  alt="Логотип Университета"
                  height="60"
                  width="70"
              />
+
             <h1 className={classes.navbar__link}>
-                Анализ Расписания
+                Анализ Расписания > {idPage}
             </h1>
-            <div style={{marginLeft: 30}}>
-                <MySelect
-                    value={''}
-                    onChange={() => {}}
-                    defaultValue="Аудитории"
-                    option={[
-                        {value: 'freeAudiences', name: 'Свободные аудитории'},
-                        {value: 'busyAudiences', name: 'Занятые аудитории'},
-                    ]}
-                />
-            </div>
-            <div style={{marginLeft: 30}}>
-                <MySelect
-                    value={''}
-                    onChange={() => {}}
-                    defaultValue="Преподаватели"
-                    option={[
-                        {value: 'freeTutor', name: 'Выходные дни'},
-                        {value: 'busyTutor', name: 'Занятость'},
-                    ]}
-                />
-            </div>
+
         </div>
     );
 }

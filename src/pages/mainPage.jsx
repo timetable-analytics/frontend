@@ -1,18 +1,13 @@
-import React, {useState} from 'react';
-import Navbar from "../component/UI/Navbar/Navbar";
-import MyButton from "../component/UI/MyButton/MyButton";
+import React from 'react';
 import Card from "../component/UI/Card/Card";
 import {useHistory} from "react-router-dom";
 import '../styles/mainPage.css'
-import SidePanel from "../component/UI/SidePanel/SidePanel";
-import SideNavbar from "../component/SideNavbar";
 
 const MainPage = () => {
     const router = useHistory();
 
     return (
         <div>
-            <Navbar/>
 
             <Card style={{marginTop: 50, marginLeft: 250}}  route={()=>{router.push("/main/audiences")}}
                   image={"https://pr.spbu.ru/images/simvolika/logo/spbu_grey.png"}

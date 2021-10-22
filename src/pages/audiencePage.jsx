@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
-import MyButton from "../component/UI/MyButton/MyButton";
-import SideNavbar from "../component/SideNavbar";
+import React from 'react';
 
 
 const AudiencePage = () => {

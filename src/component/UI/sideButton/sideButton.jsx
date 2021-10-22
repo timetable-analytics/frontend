@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import classes from "./sideButton.module.css";
+import React from 'react';
+import "./sideButton.css";
 
-const SideButton = () => {
+const SideButton = ({children, ...props}) => {
 
-    const [visible, setVisible] = useState(true);
+   /* const [visible, setVisible] = useState(true);
 
     if (visible) {
         return (
@@ -15,7 +15,13 @@ const SideButton = () => {
         <button className={classes.closeButton}
                 onClick={()=>{setVisible(true)}}
         />
+    );*/
+    return(
+        <button {...props} className="openButton">
+            {children}
+        </button>
     );
+
 };
 
 export default SideButton;
