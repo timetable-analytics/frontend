@@ -1,14 +1,12 @@
 import React from 'react';
+import MyFormPanel from "../component/UI/MyFormPanel/MyFormPanel";
 
 
 const AudiencePage = () => {
 
     return (
         <div>
-            <h1>
-                УШЁЛ ОТСЮДА
-                ЗДЕСЬ ЛЮДИ РАБОТАЮТ
-            </h1>
+            <MyFormPanel/>
         </div>
     );
 };

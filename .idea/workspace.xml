@@ -6,15 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="82ef72a4-838b-42fc-a2d7-6364653da87b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/PageRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/PageRouter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/Navbar/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/sideButton/sideButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/sideButton/sideButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/sideButton/sideButton.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/sideButton/sideButton.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/sideButton/three_lines.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/UI/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/Navbar/Navbar.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/audiencePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/audiencePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/mainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mainPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +104,8 @@
       <workItem from="1634907209008" duration="797000" />
       <workItem from="1634908663843" duration="762000" />
       <workItem from="1634915305008" duration="19000" />
-      <workItem from="1634916143680" duration="8718000" />
+      <workItem from="1634916143680" duration="8720000" />
+      <workItem from="1634980728095" duration="5960000" />
     </task>
     <servers />
   </component>
