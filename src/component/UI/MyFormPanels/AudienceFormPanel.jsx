@@ -3,7 +3,12 @@ import React, {useState} from 'react';
 
 const AudienceFormPanel = ({activeButton,setActiveButton, setInfoAboutAudiences}) => {
 
-        const [Information, setInformation] = useState({building:"", typeAudience:"", number: ""})
+        const [Information, setInformation] = useState({
+                building:"",
+                typeAudience:"",
+                number: ""
+        })
+        
         const addInfo = (e) => {
                 e.preventDefault()
                 setInfoAboutAudiences(Information);
