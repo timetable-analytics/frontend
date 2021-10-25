@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import MyButton from "./UI/MyButton/MyButton";
 import SidePanel from "./UI/SidePanel/SidePanel";
 import {useHistory} from "react-router-dom";
@@ -19,13 +19,13 @@ const SideNavbar = ({visible, setVisible}) => {
             <MyButton onClick={()=>{router.push("/main/audiences"); setVisible(false)}}>
                 Аудитории
             </MyButton>
-            <MyButton>
+            <MyButton onClick={()=>{router.push("/main/teachers"); setVisible(false)}} >
                 Преподаватели
             </MyButton>
-            <MyButton>
+            <MyButton onClick={()=>{router.push("/main/student_groups"); setVisible(false)}}>
                 Учебные группы
             </MyButton>
-            <MyButton>
+            <MyButton onClick={()=>{router.push("/main/disciplines"); setVisible(false)}}>
                 Дисциплины
             </MyButton>
         </SidePanel>
