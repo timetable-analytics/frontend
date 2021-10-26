@@ -1,14 +1,49 @@
 import React, {useState} from 'react';
+import axios from "axios"
 
 
 const AudienceFormPanel = ({activeButton,setActiveButton, setInfoAboutAudiences}) => {
+
+        // get audiences from server with possible params building, type, number
+        const getAudiences = (building, type, number, callback) => {
+          let params = (building !== undefined ? `building=${building}&` : "") +
+                   (type !== undefined ? `type=${type}&` : "") +
+                   (number !== undefined ? `number=${number}` : "");
+          console.log('http://127.0.0.1:5000/audiences/all/?' + params);
+          axios.get('http://127.0.0.1:5000/audiences/all/?' + params)
+            .then(response => {
+              callback(response.data.audiences);
+            })
+            .catch(error => {
+              alert(error.toString());
+            })
+        }
+
+        // what should we do with lest of audiences received from server
+        const getAudiencesCallback = (audiences) => {
+          console.log(audiences);
+          alert(`${audiences.length} audiences was found! Look at list of audiences in console log`);
+        }
+
+        // receive list of audiences from server on search button click
+        const onSearchClick = (e) => {
+          e.preventDefault();
+          let building = document.getElementById("building").value;
+          let type = document.getElementById("typeAudience").value;
+          let number = document.getElementById("number").value;
+          getAudiences(building !== "" ? building : undefined,
+                       type !== "" ? type : undefined,
+                       number !== "" ? number : undefined,
+                       getAudiencesCallback);
+
+        }
 
         const [Information, setInformation] = useState({
                 building:"",
                 typeAudience:"",
                 number: ""
         })
-        
+
         const addInfo = (e) => {
                 e.preventDefault()
                 setInfoAboutAudiences(Information);
@@ -52,7 +87,7 @@ const AudienceFormPanel = ({activeButton,setActiveButton, setInfoAboutAudiences}
                                                 />
                                         </div>
                                         <div className="mb-3">
-                                                <button onClick={addInfo}>Поиск</button>
+                                                <button onClick={onSearchClick}>Поиск</button>
                                         </div>
                                         <div className="mb-3">
                                                 <label  className="form-label">Начало</label>
