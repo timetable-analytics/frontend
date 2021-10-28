@@ -1,5 +1,5 @@
 import React from 'react';
-import "./sideButton.css";
+import {MenuOutlined} from '@ant-design/icons';
 
 const SideButton = ({children, ...props}) => {
 
@@ -17,9 +17,10 @@ const SideButton = ({children, ...props}) => {
         />
     );*/
     return(
-        <button {...props} className="openButton">
+        <div {...props} >
             {children}
-        </button>
+            <MenuOutlined style={{cursor: "pointer", position: "static", fontSize: 35}}/>
+        </div>
     );
 
 };
