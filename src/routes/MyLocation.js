@@ -14,8 +14,8 @@ export function MyLocation() {
         i = 3;
     else if (location.pathname === "/main/disciplines")
         i = 4;
-    else
-        i = 0;
+    else if (location.pathname === "/main/event")
+        i = 5;
 
     return i;
 }

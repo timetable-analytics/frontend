@@ -7,7 +7,7 @@ import {MyLocation} from "../../../routes/MyLocation";
 
 const Navbar = () => {
     const [visible, setVisible] = useState(false);
-    const page = ["Главная","Аудитории","Преподаватели","Учебные группы", "Дисциплины"];
+    const page = ["Главная","Аудитории","Преподаватели","Учебные группы", "Дисциплины", "Занятость"];
     const [idPage, setIdPage] = useState("Error");
 
     let i = MyLocation()

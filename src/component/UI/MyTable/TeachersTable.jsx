@@ -1,23 +1,23 @@
 import React, {useState} from 'react';
-import {Table} from 'antd';
-import Pagination from "../Pagination/Pagination";
 import {ChosenElement} from "../../../Constants/ChosenElement";
-import {getAudiences} from "../../../API/getInformation";
+import Pagination from "../Pagination/Pagination";
+import {getTeachers} from "../../../API/getInformation";
 
-const AudiencesTable = ({audiences, setAudiences, totalAudiences, paramsSearch, activeTable, currentPage, setCurrentPage}) => {
+const TeachersTable = ({teachers, setTeachers, totalTeachers, paramsSearch, activeTable, currentPage, setCurrentPage}) => {
 
     const [limitTable, setLimitTable] = useState(10)
 
     async function changePage (page){
         setCurrentPage(page)
-        console.log(currentPage)
-        await getAudiences(paramsSearch,limitTable,(page-1), getAudiencesCallback);
+        //console.log(currentPage)
+        await getTeachers(paramsSearch,limitTable,(page-1), getTeachersCallback);
     }
 
-    const getAudiencesCallback = (audiences) => {
-        //console.log(audiences);
-        //alert(`${audiences.length} audiences was found! Look at list of audiences in console log`);
-        setAudiences (audiences);
+    // what should we do with lest of teachers received from server
+    const getTeachersCallback = (teachers) => {
+        //console.log(teachers);
+        //alert(`${teachers.length} teachers was found! Look at list of teachers in console log`);
+        setTeachers(teachers);
     }
 
     return (
@@ -28,13 +28,14 @@ const AudiencesTable = ({audiences, setAudiences, totalAudiences, paramsSearch, 
                     <thead>
                     <tr>
                         <th scope="col">№</th>
-                        <th scope="col">Здание</th>
-                        <th scope="col">Тип аудитории</th>
-                        <th scope="col">Номер</th>
+                        <th scope="col">Факультет</th>
+                        <th scope="col">Ф.И.О.</th>
+                        <th scope="col">Должность</th>
+                        <th scope="col">Степень</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {audiences.map((item,index) =>(
+                    {teachers.map((item,index) =>(
                         <tr key = {index+(currentPage-1)*limitTable}
                             className={ (ChosenElement.has(index+(currentPage-1)*limitTable))?
                                 "table-success" : "table-default"
@@ -52,15 +53,16 @@ const AudiencesTable = ({audiences, setAudiences, totalAudiences, paramsSearch, 
                             }}
                         >
                             <td>{index+1+(currentPage-1)*limitTable}</td>
-                            <td>{item.building}</td>
-                            <td>{item.type}</td>
-                            <td>{item.number}</td>
+                            <td>{item.faculty}</td>
+                            <td>{item.fio}</td>
+                            <td>{item.position}</td>
+                            <td>{item.degree}</td>
                         </tr>
                     ))}
                     </tbody>
                 </table>
                 <Pagination
-                    totalPages={Math.ceil(totalAudiences/limitTable)}
+                    totalPages={Math.ceil(totalTeachers/limitTable)}
                     page={currentPage}
                     changePage={changePage}
                 />
@@ -70,7 +72,4 @@ const AudiencesTable = ({audiences, setAudiences, totalAudiences, paramsSearch, 
     );
 };
 
-export default AudiencesTable;
-
-
-
+export default TeachersTable;
