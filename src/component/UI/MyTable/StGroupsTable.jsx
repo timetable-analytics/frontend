@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {ChosenElement} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdRow, placeEvent} from "../../../Constants/ChosenElement";
 import Pagination from "../Pagination/Pagination";
 import {getStGroups} from "../../../API/getInformation";
+import {useHistory} from "react-router-dom";
 
 const StGroupsTable = ({stGroups, setStGroups, totalStGroups, paramsSearch, activeTable, currentPage, setCurrentPage}) => {
 
@@ -20,6 +21,22 @@ const StGroupsTable = ({stGroups, setStGroups, totalStGroups, paramsSearch, acti
         setStGroups(stGroups);
     }
 
+    const router = useHistory();
+
+    const onEventClick = (e)=>{
+        e.preventDefault();
+        document.getElementById("event").setAttribute("disabled", "disabled");//Дисейбл кнопки
+
+        let startDate = document.getElementById("startDate").value;
+        let endDate = document.getElementById("endDate").value;
+        DataDate.startDate = startDate;
+        DataDate.endDate = endDate;
+        placeEvent.place = "groups";
+        ChosenElement.clear();
+        router.push("/main/event");
+
+        document.getElementById("event").removeAttribute("disabled");//Включение кнопки
+    }
 
     return (
         activeTable
@@ -45,11 +62,16 @@ const StGroupsTable = ({stGroups, setStGroups, totalStGroups, paramsSearch, acti
                                 if (!ChosenElement.has(index+(currentPage-1)*limitTable)) {
                                     e.target.parentNode.classList.add("table-success");
                                     ChosenElement.add(index+(currentPage-1)*limitTable);
-                                    console.log(ChosenElement)
+                                    //console.log(ChosenElement)
+                                    IdRow.add(item.id);
+                                    //console.log(IdRow);
+
                                 } else{
                                     e.target.parentNode.classList.remove("table-success");
                                     ChosenElement.delete(index+(currentPage-1)*limitTable);
-                                    console.log(ChosenElement)
+                                    //console.log(ChosenElement)
+                                    IdRow.delete(item.id);
+                                    // console.log(IdRow);
                                 }
                             }}
                         >
@@ -67,6 +89,24 @@ const StGroupsTable = ({stGroups, setStGroups, totalStGroups, paramsSearch, acti
                     page={currentPage}
                     changePage={changePage}
                 />
+
+                <div className="col-3 order-2">
+                    <div className="mb-3">
+                        <label  className="form-label">Начало</label>
+                        <input type="date" className="form-control" id="startDate"
+                               placeholder="01.01.2021"/>
+                    </div>
+                    <div className="mb-3">
+                        <label  className="form-label">Конец</label>
+                        <input type="date" className="form-control" id="endDate"
+                               placeholder="02.01.2021"/>
+                    </div>
+
+                    <div className="mb-3">
+                        <button onClick={onEventClick} id="event">Показать занятость</button>
+                    </div>
+                </div>
+
             </div>
             :
             <div/>

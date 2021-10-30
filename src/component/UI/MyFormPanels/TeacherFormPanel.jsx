@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import {ChosenElement} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdRow} from "../../../Constants/ChosenElement";
 import TeachersTable from "../MyTable/TeachersTable";
 
 const TeacherFormPanel = ({activeButton, setActiveButton}) => {
 
     const [informationAboutTeachers, setInformationAboutTeachers] = useState({
+        id: undefined,
         faculty: undefined,
         fio: undefined,
         position: undefined,
@@ -58,14 +59,17 @@ const TeacherFormPanel = ({activeButton, setActiveButton}) => {
         e.preventDefault();
 
         await ChosenElement.clear();
-        console.log(ChosenElement);
+        await IdRow.clear();
+        DataDate.startDate = undefined;
+        DataDate.endDate = undefined;
+        //console.log(ChosenElement);
 
         let faculty = document.getElementById("faculty").value;
         let fio = document.getElementById("fio").value;
         let position = document.getElementById("position").value;
         let degree = document.getElementById("degree").value;
 
-        document.getElementById("search").getAttribute("disabled");//Дисейбл кнопки
+        document.getElementById("search").setAttribute("disabled","disabled");//Дисейбл кнопки
 
         getTeachers(faculty !== "" ? faculty : undefined,
             fio !== "" ? fio : undefined,
@@ -129,16 +133,6 @@ const TeacherFormPanel = ({activeButton, setActiveButton}) => {
 
                         <div className="mb-3">
                             <button onClick={onSearchClick} id="search">Поиск</button>
-                        </div>
-                        <div className="mb-3">
-                            <label  className="form-label">Начало</label>
-                            <input type="date" className="form-control" id="startDate"
-                                   placeholder="01.01.2021"/>
-                        </div>
-                        <div className="mb-3">
-                            <label  className="form-label">Конец</label>
-                            <input type="date" className="form-control" id="endDate"
-                                   placeholder="02.01.2021"/>
                         </div>
 
                     </form>

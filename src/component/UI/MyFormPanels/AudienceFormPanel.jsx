@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import axios from "axios"
-import {ChosenElement} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdRow} from "../../../Constants/ChosenElement";
 import AudiencesTable from "../MyTable/AudiencesTable";
 
 
 const AudienceFormPanel = ({activeButton,setActiveButton}) => {
 
     const [InformationAboutAudiences, setInformationAboutAudiences] = useState({
+        id: undefined,
         building: undefined,
         type: undefined,
         number: undefined
@@ -53,12 +54,17 @@ const AudienceFormPanel = ({activeButton,setActiveButton}) => {
         setActiveTable(false);
         setCurrentPage(1);
         e.preventDefault();
+
         await ChosenElement.clear();
-        console.log(ChosenElement);
+        await IdRow.clear();
+        DataDate.startDate = undefined;
+        DataDate.endDate = undefined;
+        //console.log(ChosenElement);
+
         let building = document.getElementById("building").value;
         let type = document.getElementById("type").value;
         let number = document.getElementById("number").value;
-        document.getElementById("search").getAttribute("disabled");//Дисейбл кнопки
+        document.getElementById("search").setAttribute("disabled","disabled");//Дисейбл кнопки
         getAudiences(building !== "" ? building : undefined,
             type !== "" ? type : undefined,
             number !== "" ? number : undefined,
@@ -113,17 +119,6 @@ const AudienceFormPanel = ({activeButton,setActiveButton}) => {
                         <div className="mb-3">
                             <button onClick={onSearchClick} id="search">Поиск</button>
                         </div>
-                        <div className="mb-3">
-                            <label  className="form-label">Начало</label>
-                            <input type="date" className="form-control" id="startDate"
-                                   placeholder="01.01.2021"/>
-                        </div>
-                        <div className="mb-3">
-                            <label  className="form-label">Конец</label>
-                            <input type="date" className="form-control" id="endDate"
-                                   placeholder="02.01.2021"/>
-                        </div>
-
                     </form>
                 </div>
                 <AudiencesTable

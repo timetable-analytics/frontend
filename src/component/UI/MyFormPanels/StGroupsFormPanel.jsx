@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import {ChosenElement} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdRow} from "../../../Constants/ChosenElement";
 import StGroupsTable from "../MyTable/StGroupsTable";
 
 const StGroupsFormPanel = ({activeButton, setActiveButton, setInfoAboutStGroups}) => {
 
     const [informationAboutStGroups, setInformationAboutStGroups] = useState({
+        id: undefined,
         faculty: undefined,
         program: undefined,
         name: undefined,
@@ -57,14 +58,17 @@ const StGroupsFormPanel = ({activeButton, setActiveButton, setInfoAboutStGroups}
         e.preventDefault();
 
         await ChosenElement.clear();
-        console.log(ChosenElement);
+        await IdRow.clear();
+        DataDate.startDate = undefined;
+        DataDate.endDate = undefined;
+        //console.log(ChosenElement);
 
         let faculty = document.getElementById("faculty").value;
         let program = document.getElementById("program").value;
         let name = document.getElementById("name").value;
         let course = document.getElementById("course").value;
 
-        document.getElementById("search").getAttribute("disabled");//Дисейбл кнопки
+        document.getElementById("search").setAttribute("disabled","disabled");//Дисейбл кнопки
 
         getStGroups(faculty !== "" ? faculty : undefined,
             program !== "" ? program : undefined,
@@ -127,19 +131,10 @@ const StGroupsFormPanel = ({activeButton, setActiveButton, setInfoAboutStGroups}
                         <div className="mb-3">
                             <button onClick={onSearchClick} id="search">Поиск</button>
                         </div>
-                        <div className="mb-3">
-                            <label  className="form-label">Начало</label>
-                            <input type="date" className="form-control" id="startDate"
-                                   placeholder="01.01.2021"/>
-                        </div>
-                        <div className="mb-3">
-                            <label  className="form-label">Конец</label>
-                            <input type="date" className="form-control" id="endDate"
-                                   placeholder="02.01.2021"/>
-                        </div>
-
                     </form>
+
                 </div>
+
                 <StGroupsTable
                     stGroups={informationAboutStGroups}
                     setStGroups={setInformationAboutStGroups}

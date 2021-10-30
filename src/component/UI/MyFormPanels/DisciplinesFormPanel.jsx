@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import {ChosenElement} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdRow} from "../../../Constants/ChosenElement";
 import DisciplinesTable from "../MyTable/DisciplinesTable";
 
 const DisciplinesFormPanel = ({activeButton, setActiveButton, setInfoAboutDisciplines}) => {
 
     const [informationAboutDisciplines, setInformationAboutDisciplines] = useState({
+        id: undefined,
         name: undefined
     })
     const [paramsSearch, setParamsSearch] = useState({
@@ -48,10 +49,13 @@ const DisciplinesFormPanel = ({activeButton, setActiveButton, setInfoAboutDiscip
         e.preventDefault();
 
         await ChosenElement.clear();
-        console.log(ChosenElement);
+        await IdRow.clear();
+        DataDate.startDate = undefined;
+        DataDate.endDate = undefined;
+        //console.log(ChosenElement);
 
         let name = document.getElementById("name").value;
-        document.getElementById("search").getAttribute("disabled");//Дисейбл кнопки
+        document.getElementById("search").setAttribute("disabled","disabled");//Дисейбл кнопки
 
         getDisciplines(name !== "" ? name : undefined, getDisciplinesCallback);
 
@@ -88,19 +92,10 @@ const DisciplinesFormPanel = ({activeButton, setActiveButton, setInfoAboutDiscip
                         <div className="mb-3">
                             <button onClick={onSearchClick} id="search">Поиск</button>
                         </div>
-                        <div className="mb-3">
-                            <label  className="form-label">Начало</label>
-                            <input type="date" className="form-control" id="startDate"
-                                   placeholder="01.01.2021"/>
-                        </div>
-                        <div className="mb-3">
-                            <label  className="form-label">Конец</label>
-                            <input type="date" className="form-control" id="endDate"
-                                   placeholder="02.01.2021"/>
-                        </div>
-
                     </form>
+
                 </div>
+
                 <DisciplinesTable
                     disciplines={informationAboutDisciplines}
                     setDisciplines={setInformationAboutDisciplines}
