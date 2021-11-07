@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {ChosenElement} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdRow, placeEvent} from "../../../Constants/ChosenElement";
 import Pagination from "../Pagination/Pagination";
+import {postEvent} from "../../../API/postInformation";
 
 const EventTable = ({events, setEvents, totalEvents, activeTable, currentPage, setCurrentPage}) => {
 
@@ -8,8 +9,13 @@ const EventTable = ({events, setEvents, totalEvents, activeTable, currentPage, s
 
     async function changePage (page){
         setCurrentPage(page)
+        await postEvent(placeEvent.place, DataDate.startDate, DataDate.endDate, IdRow, limitTable, currentPage, postEventsCallback)
         //console.log(currentPage)
-       // await getEvents(paramsSearch,limitTable,(page-1), getEventsCallback);
+    }
+
+    const postEventsCallback = (events)=>{
+        setEvents(events);
+        //console.log(events);
     }
 
     return (

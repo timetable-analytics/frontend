@@ -34,10 +34,10 @@ const EventPage = () =>{
         bodyFormData.append("id", IdArray);
         axios({
             method: "post",
-            url: "http://127.0.0.1:5000",
+            url: 'http://127.0.0.1:5000/timetable/search/?'+`limit=10&`+ `page=0`,
             data: bodyFormData
         }).then(response => {
-            callback(response.data.events, response.data.countRecords);
+            callback(response.data.timetables, response.data.countRecords);
         }).catch(error => {
                 alert(error.toString());
             });
@@ -51,7 +51,7 @@ const EventPage = () =>{
 
     return (
         <div>
-            <button onClick={()=>postEvent(placeEvent.place,DataDate.startDate, DataDate.endDate, IdRow, postEventCallback)}>
+            <button onClick={()=>postEvent(placeEvent.place, DataDate.startDate, DataDate.endDate, IdRow, postEventCallback)}>
                 Запрос
                 {placeEvent.place}
             </button>
