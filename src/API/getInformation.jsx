@@ -6,8 +6,8 @@ export const getAudiences = (paramsSearch,limit, page, callback) => {
         (paramsSearch.number !== undefined ? `number=${paramsSearch.number}&` : "")+
         (`limit=${limit}&`)+
         (`page=${page}`);
-    console.log('http://127.0.0.1:5000/audiences/all/?' + params);
-    axios.get('http://127.0.0.1:5000/audiences/all/?' + params)
+    console.log('http://127.0.0.1:5000/audiences/search/?' + params);
+    axios.get('http://127.0.0.1:5000/audiences/search/?' + params)
         .then(response => {
             callback(response.data.audiences);
         })
@@ -24,8 +24,8 @@ export const getTeachers = (paramsSearch, limit, page, callback) => {
         (paramsSearch.degree !== undefined ? `degree=${paramsSearch.degree}&` : "")+
         (`limit=${limit}&`)+
         (`page=${page}`);
-    console.log('http://127.0.0.1:5000/educators/all/?' + params);
-    axios.get('http://127.0.0.1:5000/educators/all/?' + params)
+    console.log('http://127.0.0.1:5000/educators/search/?' + params);
+    axios.get('http://127.0.0.1:5000/educators/search/?' + params)
         .then(response => {
             callback(response.data.educators);
         })
@@ -42,8 +42,8 @@ export const getStGroups = (paramsSearch, limit, page, callback) => {
         (paramsSearch.course !== undefined ? `course=${paramsSearch.course}&` : "")+
         (`limit=${limit}&`)+
         (`page=${page}`);
-    console.log('http://127.0.0.1:5000/groups/all/?' + params);
-    axios.get('http://127.0.0.1:5000/groups/all/?' + params)
+    console.log('http://127.0.0.1:5000/groups/search/?' + params);
+    axios.get('http://127.0.0.1:5000/groups/search/?' + params)
         .then(response => {
             callback(response.data.groups);
         })
@@ -57,8 +57,8 @@ export const getDisciplines = (paramsSearch, limit, page, callback) => {
     let params = (paramsSearch.name !== undefined ? `name=${paramsSearch.name}&` : "") +
         (`limit=${limit}&`)+
         (`page=${page}`);
-    console.log('http://127.0.0.1:5000/disciplines/all/?' + params);
-    axios.get('http://127.0.0.1:5000/disciplines/all/?' + params)
+    console.log('http://127.0.0.1:5000/disciplines/search/?' + params);
+    axios.get('http://127.0.0.1:5000/disciplines/search/?' + params)
         .then(response => {
             callback(response.data.disciplines);
         })

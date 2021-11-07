@@ -31,8 +31,8 @@ const StGroupsFormPanel = ({activeButton, setActiveButton, setInfoAboutStGroups}
             (course !== undefined ? `course=${course}&` : "")+
             (`limit=${10}&`)+
             ("page=0");
-        console.log('http://127.0.0.1:5000/groups/all/?' + params);
-        axios.get('http://127.0.0.1:5000/groups/all/?' + params)
+        console.log('http://127.0.0.1:5000/groups/search/?' + params);
+        axios.get('http://127.0.0.1:5000/groups/search/?' + params)
             .then(response => {
                 callback(response.data.groups, response.data.countRecords);
             })

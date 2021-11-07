@@ -24,6 +24,7 @@ const EventPage = () =>{
 
     const [totalEvents, setTotalEvents] = useState( undefined);
     const [currentPage, setCurrentPage] = useState(1);
+    const [activeTable, setActiveTable] = useState(false);
 
     const postEvent = (place, startData, endData, IdArray, callback)=>{
         let bodyFormData = new FormData();
@@ -36,21 +37,18 @@ const EventPage = () =>{
             url: "http://127.0.0.1:5000",
             data: bodyFormData
         }).then(response => {
-            callback(response.data);
+            callback(response.data.events, response.data.countRecords);
         }).catch(error => {
                 alert(error.toString());
             });
     }
 
-    const postEventCallback = () =>{
+    const postEventCallback = (events, countRecords) =>{
+        setInformationAboutEvents(events);
+        setTotalEvents (countRecords);
+        setActiveTable(true);
     }
-    /*<EventTable
-        events={informationAboutEvents}
-        setEvents={setInformationAboutEvents}
-        totalEvents={totalEvents}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-    />*/
+
     return (
         <div>
             <button onClick={()=>postEvent(placeEvent.place,DataDate.startDate, DataDate.endDate, IdRow, postEventCallback)}>
@@ -61,6 +59,7 @@ const EventPage = () =>{
             <div className="container">
 
                 <div className="row gx-5">
+
                     <div className="col-2">
                         <div className="mb-3 d-grid gap-2">
                             <button type="button" className="btn btn-outline-dark" id="audiences">Аудитории</button>
@@ -75,7 +74,14 @@ const EventPage = () =>{
                             <button type="button" className="btn btn-outline-dark" id="disciplines">Дисциплины</button>
                         </div>
                     </div>
-
+                    <EventTable
+                        events={informationAboutEvents}
+                        setEvents={setInformationAboutEvents}
+                        totalEvents={totalEvents}
+                        activeTable={activeTable}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                    />
 
                 </div>
 

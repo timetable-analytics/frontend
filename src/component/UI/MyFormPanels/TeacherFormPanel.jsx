@@ -32,8 +32,8 @@ const TeacherFormPanel = ({activeButton, setActiveButton}) => {
             (degree !== undefined ? `degree=${degree}&` : "")+
             (`limit=${10}&`)+
             ("page=0");
-        console.log('http://127.0.0.1:5000/educators/all/?' + params);
-        axios.get('http://127.0.0.1:5000/educators/all/?' + params)
+        console.log('http://127.0.0.1:5000/educators/search/?' + params);
+        axios.get('http://127.0.0.1:5000/educators/search/?' + params)
             .then(response => {
                 callback(response.data.educators, response.data.countRecords);
             })
