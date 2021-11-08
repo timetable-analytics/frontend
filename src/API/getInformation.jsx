@@ -1,13 +1,13 @@
 import axios from "axios";
 
-export const getAudiences = (paramsSearch,limit, page, callback) => {
+export const getAudiences = async (paramsSearch,limit, page, callback) => {
     let params = (paramsSearch.building !== undefined ? `building=${paramsSearch.building}&` : "") +
         (paramsSearch.type !== undefined ? `type=${paramsSearch.type}&` : "") +
         (paramsSearch.number !== undefined ? `number=${paramsSearch.number}&` : "")+
         (`limit=${limit}&`)+
         (`page=${page}`);
     console.log('http://127.0.0.1:5000/audiences/search/?' + params);
-    axios.get('http://127.0.0.1:5000/audiences/search/?' + params)
+    await axios.get('http://127.0.0.1:5000/audiences/search/?' + params)
         .then(response => {
             callback(response.data.audiences);
         })
@@ -17,7 +17,7 @@ export const getAudiences = (paramsSearch,limit, page, callback) => {
 }
 
  // get teachers from server with possible params faculty, fio, position, degree
-export const getTeachers = (paramsSearch, limit, page, callback) => {
+export const getTeachers = async (paramsSearch, limit, page, callback) => {
     let params = (paramsSearch.faculty !== undefined ? `faculty=${paramsSearch.faculty}&` : "") +
         (paramsSearch.fio !== undefined ? `fio=${paramsSearch.fio}&` : "") +
         (paramsSearch.position !== undefined ? `position=${paramsSearch.position }&` : "")+
@@ -25,7 +25,7 @@ export const getTeachers = (paramsSearch, limit, page, callback) => {
         (`limit=${limit}&`)+
         (`page=${page}`);
     console.log('http://127.0.0.1:5000/educators/search/?' + params);
-    axios.get('http://127.0.0.1:5000/educators/search/?' + params)
+    await axios.get('http://127.0.0.1:5000/educators/search/?' + params)
         .then(response => {
             callback(response.data.educators);
         })
@@ -35,7 +35,7 @@ export const getTeachers = (paramsSearch, limit, page, callback) => {
 }
 
 // get stGroups from server with possible params faculty, program, number, course
-export const getStGroups = (paramsSearch, limit, page, callback) => {
+export const getStGroups = async (paramsSearch, limit, page, callback) => {
     let params = (paramsSearch.faculty !== undefined ? `faculty=${paramsSearch.faculty}&` : "") +
         (paramsSearch.program !== undefined ? `program=${paramsSearch.program}&` : "") +
         (paramsSearch.name !== undefined ? `number=${paramsSearch.name}&` : "")+
@@ -43,7 +43,7 @@ export const getStGroups = (paramsSearch, limit, page, callback) => {
         (`limit=${limit}&`)+
         (`page=${page}`);
     console.log('http://127.0.0.1:5000/groups/search/?' + params);
-    axios.get('http://127.0.0.1:5000/groups/search/?' + params)
+    await axios.get('http://127.0.0.1:5000/groups/search/?' + params)
         .then(response => {
             callback(response.data.groups);
         })
@@ -53,12 +53,12 @@ export const getStGroups = (paramsSearch, limit, page, callback) => {
 }
 
 // get disciplines from server with possible params name
-export const getDisciplines = (paramsSearch, limit, page, callback) => {
+export const getDisciplines = async (paramsSearch, limit, page, callback) => {
     let params = (paramsSearch.name !== undefined ? `name=${paramsSearch.name}&` : "") +
         (`limit=${limit}&`)+
         (`page=${page}`);
     console.log('http://127.0.0.1:5000/disciplines/search/?' + params);
-    axios.get('http://127.0.0.1:5000/disciplines/search/?' + params)
+    await axios.get('http://127.0.0.1:5000/disciplines/search/?' + params)
         .then(response => {
             callback(response.data.disciplines);
         })
