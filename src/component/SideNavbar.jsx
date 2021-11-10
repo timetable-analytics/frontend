@@ -1,7 +1,7 @@
 import React from 'react';
 import MyButton from "./UI/MyButton/MyButton";
 import SidePanel from "./UI/SidePanel/SidePanel";
-import Basement from "./UI/Podval/Basement";
+import Basement from "./UI/Basement/Basement";
 import {useHistory} from "react-router-dom";
 
 const SideNavbar = ({visible, setVisible}) => {
