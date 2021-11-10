@@ -1,0 +1,8 @@
+.myPdv {
+    position: fixed;
+    left: 0; bottom: 0;
+    padding: 10px;
+    font-size: 75%;
+    width: 100%;
+    text-align: center;
+}

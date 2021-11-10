@@ -1,6 +1,7 @@
 import React from 'react';
 import MyButton from "./UI/MyButton/MyButton";
 import SidePanel from "./UI/SidePanel/SidePanel";
+import Basement from "./UI/Podval/Basement";
 import {useHistory} from "react-router-dom";
 
 const SideNavbar = ({visible, setVisible}) => {
@@ -9,7 +10,7 @@ const SideNavbar = ({visible, setVisible}) => {
 
     return (
         <SidePanel active={visible} setActive={setVisible}>
-            <MyButton style={{background: "black"}} onClick={()=> setVisible(false)} >
+            <MyButton style={{background: "gray", marginBottom: 20}} onClick={()=> setVisible(false)} >
                 Закрыть панель
             </MyButton>
 
@@ -28,6 +29,9 @@ const SideNavbar = ({visible, setVisible}) => {
             <MyButton onClick={()=>{router.push("/main/disciplines"); setVisible(false)}}>
                 Дисциплины
             </MyButton>
+           <Basement>
+               &copy; Санкт-Петербургский государственный университет
+           </Basement>
         </SidePanel>
     );
 };

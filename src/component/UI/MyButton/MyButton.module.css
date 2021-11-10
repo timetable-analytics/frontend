@@ -1,8 +1,22 @@
 .myBtn {
     padding: 5px 15px;
-    color: orangered;
+    color: black;
     font-size: 14px;
     background: transparent;
     border: 1px solid maroon;
     cursor: pointer;
+margin-bottom: 5px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+    -webkit-transition: All 0.5s ease;
+    -moz-transition: All 0.5s ease;
+    -o-transition: All 0.5s ease;
+    -ms-transition: All 0.5s ease;
+    transition: All 0.5s ease;
+
+}
+.myBtn:hover {
+    background-color: #E9967A;
 }
