@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="82ef72a4-838b-42fc-a2d7-6364653da87b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/postInformation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/postInformation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyTable/EventTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyTable/EventTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/EventPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EventPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +61,8 @@
       <recent name="C:\Users\Egor_Kudryashov\Documents\GitHub\frontend\src\component\UI\Navbar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Egor_Kudryashov\Documents\GitHub\frontend" />
+      <recent name="C:\Users\Egor_Kudryashov\Documents\GitHub\frontend\src" />
       <recent name="C:\Users\Egor_Kudryashov\Documents\GitHub\frontend\src\component" />
       <recent name="C:\Users\Egor_Kudryashov\Documents\GitHub\frontend\src\component\UI" />
       <recent name="C:\Users\Egor_Kudryashov\Documents\GitHub\frontend\src\component\UI\sideButton" />
@@ -125,7 +123,8 @@
       <workItem from="1636296537561" duration="1044000" />
       <workItem from="1636376043763" duration="2237000" />
       <workItem from="1636644366458" duration="6773000" />
-      <workItem from="1637148332625" duration="14934000" />
+      <workItem from="1637148332625" duration="15145000" />
+      <workItem from="1637178188346" duration="1291000" />
     </task>
     <servers />
   </component>
