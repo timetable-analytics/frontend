@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {ChosenElement, DataDate, IdRow, placeEvent} from "../../../Constants/ChosenElement";
 import Pagination from "../Pagination/Pagination";
 import {postEvent} from "../../../API/postInformation";
+import LineChart from "../Chart/LineChart";
 
 const EventTable = ({events, setEvents, totalEvents, activeTable, currentPage, setCurrentPage}) => {
 
@@ -9,19 +10,19 @@ const EventTable = ({events, setEvents, totalEvents, activeTable, currentPage, s
 
     async function changePage (page){
         setCurrentPage(page)
-        await postEvent(placeEvent.place, DataDate.startDate, DataDate.endDate, IdRow, limitTable, currentPage, postEventsCallback)
+        await postEvent(placeEvent.place, DataDate.startDate, DataDate.endDate, IdRow, limitTable, (page-1), postEventsCallback)
         //console.log(currentPage)
     }
 
     const postEventsCallback = (events)=>{
         setEvents(events);
-        //console.log(events);
+        console.log(events);
     }
 
     return (
         activeTable
             ?
-            <div className="col-8 order-2 gy-5">
+            <div>
                 <table className="table table-striped table-bordered">
                     <thead>
                     <tr>
