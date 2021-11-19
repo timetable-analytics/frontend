@@ -2,8 +2,11 @@ import React, {useState} from 'react';
 import axios from "axios";
 import {ChosenElement, DataDate, IdRow} from "../../../Constants/ChosenElement";
 import DisciplinesTable from "../MyTable/DisciplinesTable";
+import Loader from "../Loader/Loader";
 
-const DisciplinesFormPanel = ({activeButton, setActiveButton, setInfoAboutDisciplines}) => {
+const DisciplinesFormPanel = ({activeButton, setActiveButton}) => {
+
+    const[isLoading, setIsLoading]=useState(true);
 
     const [informationAboutDisciplines, setInformationAboutDisciplines] = useState({
         id: undefined,
@@ -29,6 +32,8 @@ const DisciplinesFormPanel = ({activeButton, setActiveButton, setInfoAboutDiscip
             })
             .catch(error => {
                 alert(error.toString());
+                document.getElementById("search").removeAttribute("disabled");//Включение кнопки
+                setIsLoading(true);
             });
     }
 
@@ -39,6 +44,7 @@ const DisciplinesFormPanel = ({activeButton, setActiveButton, setInfoAboutDiscip
         setInformationAboutDisciplines(disciplines);
         setTotalDisciplines (countRecords);
         setActiveTable(true);
+        setIsLoading(true);
         document.getElementById("search").removeAttribute("disabled");//Включение кнопки
     }
 
@@ -55,7 +61,9 @@ const DisciplinesFormPanel = ({activeButton, setActiveButton, setInfoAboutDiscip
         //console.log(ChosenElement);
 
         let name = document.getElementById("name").value;
+
         document.getElementById("search").setAttribute("disabled","disabled");//Дисейбл кнопки
+        setIsLoading(false);
 
         getDisciplines(name !== "" ? name : undefined, getDisciplinesCallback);
 
@@ -95,18 +103,23 @@ const DisciplinesFormPanel = ({activeButton, setActiveButton, setInfoAboutDiscip
                     </form>
 
                 </div>
-
-                <DisciplinesTable
-                    disciplines={informationAboutDisciplines}
-                    setDisciplines={setInformationAboutDisciplines}
-                    totalDisciplines={totalDisciplines}
-                    paramsSearch={paramsSearch}
-                    activeTable={activeTable}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                />
+                {isLoading
+                    ?
+                    <DisciplinesTable
+                        disciplines={informationAboutDisciplines}
+                        setDisciplines={setInformationAboutDisciplines}
+                        totalDisciplines={totalDisciplines}
+                        paramsSearch={paramsSearch}
+                        activeTable={activeTable}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                    />
+                    :
+                    <div className="col-6" style={{marginTop: 100}}>
+                        <Loader/>
+                    </div>
+                }
             </div>
-
         </div>
     );
 };

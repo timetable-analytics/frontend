@@ -2,8 +2,11 @@ import React, {useState} from 'react';
 import axios from "axios";
 import {ChosenElement, DataDate, IdRow} from "../../../Constants/ChosenElement";
 import StGroupsTable from "../MyTable/StGroupsTable";
+import Loader from "../Loader/Loader";
 
-const StGroupsFormPanel = ({activeButton, setActiveButton, setInfoAboutStGroups}) => {
+const StGroupsFormPanel = ({activeButton, setActiveButton}) => {
+
+    const [isLoading, setIsLoading]=useState(true);
 
     const [informationAboutStGroups, setInformationAboutStGroups] = useState({
         id: undefined,
@@ -38,6 +41,8 @@ const StGroupsFormPanel = ({activeButton, setActiveButton, setInfoAboutStGroups}
             })
             .catch(error => {
                 alert(error.toString());
+                document.getElementById("search").removeAttribute("disabled");//Включение кнопки
+                setIsLoading(true);
             });
     }
 
@@ -48,6 +53,7 @@ const StGroupsFormPanel = ({activeButton, setActiveButton, setInfoAboutStGroups}
         setInformationAboutStGroups(stGroups);
         setTotalStGroups (countRecords);
         setActiveTable(true);
+        setIsLoading(true);
         document.getElementById("search").removeAttribute("disabled");//Включение кнопки
     }
 
@@ -69,6 +75,7 @@ const StGroupsFormPanel = ({activeButton, setActiveButton, setInfoAboutStGroups}
         let course = document.getElementById("course").value;
 
         document.getElementById("search").setAttribute("disabled","disabled");//Дисейбл кнопки
+        setIsLoading(false);
 
         getStGroups(faculty !== "" ? faculty : undefined,
             program !== "" ? program : undefined,
@@ -134,16 +141,22 @@ const StGroupsFormPanel = ({activeButton, setActiveButton, setInfoAboutStGroups}
                     </form>
 
                 </div>
-
-                <StGroupsTable
-                    stGroups={informationAboutStGroups}
-                    setStGroups={setInformationAboutStGroups}
-                    totalStGroups={totalStGroups}
-                    activeTable={activeTable}
-                    paramsSearch={paramsSearch}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                />
+                {isLoading
+                    ?
+                    <StGroupsTable
+                        stGroups={informationAboutStGroups}
+                        setStGroups={setInformationAboutStGroups}
+                        totalStGroups={totalStGroups}
+                        activeTable={activeTable}
+                        paramsSearch={paramsSearch}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                    />
+                    :
+                    <div className="col-6" style={{marginTop: 100}}>
+                        <Loader/>
+                    </div>
+                }
             </div>
 
         </div>

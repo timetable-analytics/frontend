@@ -4,8 +4,11 @@ import axios from "axios";
 import EventTable from "../component/UI/MyTable/EventTable";
 import {postChart} from "../API/postInformation";
 import LineChart from "../component/UI/Chart/LineChart";
+import Loader from "../component/UI/Loader/Loader";
 
 const EventPage = () =>{
+
+    const [isLoading,setIsLoading]=useState(true);
 
     const [informationAboutEvents, setInformationAboutEvents] = useState({
         id: undefined,
@@ -74,6 +77,7 @@ const EventPage = () =>{
             callback(response.data.timetables, response.data.countRecords);
         }).catch(error => {
                 alert(error.toString());
+                setIsLoading(true);
             });
     }
 
@@ -81,6 +85,7 @@ const EventPage = () =>{
         setInformationAboutEvents(events);
         setTotalEvents (countRecords);
         setActiveTable(true);
+        setIsLoading(true);
     }
 
     const onGraphClick = async (e) => {
@@ -90,7 +95,10 @@ const EventPage = () =>{
         let date = document.getElementById("select_date").value;
         //console.log(param,date);
 
-        await postChart(IdRow,param,date,postGraphCallback);
+        document.getElementById("graph").setAttribute("disabled","disabled");//Дисейбл кнопки
+        setIsLoading(false);
+
+        await postChart(IdRow,param,date,postGraphCallback, postGraphErrorCallback);
     }
 
     function GenerateRandomColor() {
@@ -117,21 +125,37 @@ const EventPage = () =>{
         await setDatasets(datasets);
         await setActiveTable(false);
         await setActiveGraph (true);
+
+        document.getElementById("graph").removeAttribute("disabled")
+        setIsLoading(true);
+    }
+
+    const postGraphErrorCallback =async (error)=>{
+        await alert(error.toString());
+        document.getElementById("graph").removeAttribute("disabled")
+        setIsLoading(true);
     }
 
 
     return (
         <div>
-            <button onClick={()=>postEvent(placeEvent.place, DataDate.startDate, DataDate.endDate, IdRow, postEventCallback)}>
-                Запрос
-                {placeEvent.place}
-            </button>
 
             <div className="container">
 
-                <div className="row gx-5">
+                <div className="row">
 
                     <div className="col-2">
+
+                        <div className="mb-3 d-grid gap-2" style={{marginTop: 20}}>
+                            <button type="button" className="btn btn-outline-success"
+                                    onClick={()=>{
+                                        postEvent(placeEvent.place, DataDate.startDate, DataDate.endDate, IdRow, postEventCallback);
+                                        setIsLoading(false);
+                                    }}>
+                                Показать таблицу
+                            </button>
+                        </div>
+
                         <div className="mb-3 d-grid gap-2">
                             <button type="button" className="btn btn-outline-dark" id="audiences">Аудитории</button>
                         </div>
@@ -175,21 +199,28 @@ const EventPage = () =>{
 
                         </div>
                     </div>
-                    <div className="col-10 order-2 gy-5">
-                        <EventTable
-                            events={informationAboutEvents}
-                            setEvents={setInformationAboutEvents}
-                            totalEvents={totalEvents}
-                            activeTable={activeTable}
-                            currentPage={currentPage}
-                            setCurrentPage={setCurrentPage}
-                        />
-                        <LineChart
-                            activeChart={activeGraph}
-                            Axis={labels}
-                            Labels={GenerationDataForGraph(datasets)}
-                        />
-                    </div>
+                    {isLoading
+                        ?
+                        <div className="col-10 order-2 gy-5">
+                            <EventTable
+                                events={informationAboutEvents}
+                                setEvents={setInformationAboutEvents}
+                                totalEvents={totalEvents}
+                                activeTable={activeTable}
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                            />
+                            <LineChart
+                                activeChart={activeGraph}
+                                Axis={labels}
+                                Labels={GenerationDataForGraph(datasets)}
+                            />
+                        </div>
+                        :
+                        <div className="col-7" style={{marginTop: 100}}>
+                            <Loader/>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

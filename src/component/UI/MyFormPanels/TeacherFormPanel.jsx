@@ -2,8 +2,11 @@ import React, {useState} from 'react';
 import axios from "axios";
 import {ChosenElement, DataDate, IdRow} from "../../../Constants/ChosenElement";
 import TeachersTable from "../MyTable/TeachersTable";
+import Loader from "../Loader/Loader";
 
 const TeacherFormPanel = ({activeButton, setActiveButton}) => {
+
+    const [isLoading, setIsLoading]=useState(true);
 
     const [informationAboutTeachers, setInformationAboutTeachers] = useState({
         id: undefined,
@@ -39,6 +42,8 @@ const TeacherFormPanel = ({activeButton, setActiveButton}) => {
             })
             .catch(error => {
                 alert(error.toString());
+                document.getElementById("search").removeAttribute("disabled");//Включение кнопки
+                setIsLoading(true);
             });
     }
 
@@ -49,6 +54,7 @@ const TeacherFormPanel = ({activeButton, setActiveButton}) => {
         setInformationAboutTeachers(teachers);
         setTotalTeachers (countRecords);
         setActiveTable(true);
+        setIsLoading(true);
         document.getElementById("search").removeAttribute("disabled");//Включение кнопки
     }
 
@@ -70,6 +76,7 @@ const TeacherFormPanel = ({activeButton, setActiveButton}) => {
         let degree = document.getElementById("degree").value;
 
         document.getElementById("search").setAttribute("disabled","disabled");//Дисейбл кнопки
+        setIsLoading(false);
 
         getTeachers(faculty !== "" ? faculty : undefined,
             fio !== "" ? fio : undefined,
@@ -88,8 +95,8 @@ const TeacherFormPanel = ({activeButton, setActiveButton}) => {
 
     return (
         <div className="container">
-            <div className="row gx-5">
-                <div className="col-3 order-1">
+            <div className="row">
+                <div className="col-3">
 
                     <div style={{marginTop: 15}} className="mb-3">
                         <button className={activeButton ? "roundB active" : "roundB"}
@@ -137,15 +144,22 @@ const TeacherFormPanel = ({activeButton, setActiveButton}) => {
 
                     </form>
                 </div>
-                <TeachersTable
-                    teachers ={informationAboutTeachers}
-                    setTeachers={setInformationAboutTeachers}
-                    totalTeachers={totalTeachers}
-                    paramsSearch={paramsSearch}
-                    activeTable={activeTable}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                />
+                {isLoading
+                    ?
+                    <TeachersTable
+                        teachers={informationAboutTeachers}
+                        setTeachers={setInformationAboutTeachers}
+                        totalTeachers={totalTeachers}
+                        paramsSearch={paramsSearch}
+                        activeTable={activeTable}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                    />
+                    :
+                    <div className="col-6" style={{marginTop: 100}}>
+                        <Loader/>
+                    </div>
+                }
             </div>
         </div>
     );

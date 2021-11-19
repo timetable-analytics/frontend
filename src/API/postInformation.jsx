@@ -20,7 +20,7 @@ export const postEvent = async (place, startData, endData, IdArray, limit, page,
     });
 }
 
-export const postChart = async (IdArray, param, date, callback)=>{
+export const postChart = async (IdArray, param, date, callback, errorCallback)=>{
     let bodyFormData = new FormData();
     let IdMassif = Array.from(IdArray);
 
@@ -35,6 +35,6 @@ export const postChart = async (IdArray, param, date, callback)=>{
     }).then(response => {
         callback(response.data.labels, response.data.datasets);
     }).catch(error => {
-        alert(error.toString());
+        errorCallback(error);
     });
 }

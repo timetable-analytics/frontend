@@ -2,9 +2,12 @@ import React, {useState} from 'react';
 import axios from "axios"
 import {ChosenElement, DataDate, IdRow} from "../../../Constants/ChosenElement";
 import AudiencesTable from "../MyTable/AudiencesTable";
+import Loader from "../Loader/Loader";
 
 
 const AudienceFormPanel = ({activeButton,setActiveButton}) => {
+
+    const [isLoading, setIsLoading]=useState(true);//false-значит отображает иконку загрузки
 
     const [InformationAboutAudiences, setInformationAboutAudiences] = useState({
         id: undefined,
@@ -36,6 +39,8 @@ const AudienceFormPanel = ({activeButton,setActiveButton}) => {
             })
             .catch(error => {
                 alert(error.toString());
+                document.getElementById("search").removeAttribute("disabled");//Включение кнопки
+                setIsLoading(true);
             });
     }
 
@@ -46,6 +51,7 @@ const AudienceFormPanel = ({activeButton,setActiveButton}) => {
         setInformationAboutAudiences (audiences);
         setTotalAudiences (countRecords);
         setActiveTable(true);
+        setIsLoading(true);
         document.getElementById("search").removeAttribute("disabled");//Включение кнопки
     }
 
@@ -64,7 +70,10 @@ const AudienceFormPanel = ({activeButton,setActiveButton}) => {
         let building = document.getElementById("building").value;
         let type = document.getElementById("type").value;
         let number = document.getElementById("number").value;
+
         document.getElementById("search").setAttribute("disabled","disabled");//Дисейбл кнопки
+        setIsLoading(false);
+
         getAudiences(building !== "" ? building : undefined,
             type !== "" ? type : undefined,
             number !== "" ? number : undefined,
@@ -78,8 +87,8 @@ const AudienceFormPanel = ({activeButton,setActiveButton}) => {
 
     return (
         <div className="container">
-            <div className="row gx-5">
-                <div className="col-3 order-1">
+            <div className="row">
+                <div className="col-3 ">
 
                     <div style={{marginTop: 15}} className="mb-3">
                         <button className={activeButton ? "roundB active" : "roundB"}
@@ -121,15 +130,22 @@ const AudienceFormPanel = ({activeButton,setActiveButton}) => {
                         </div>
                     </form>
                 </div>
-                <AudiencesTable
-                    audiences={InformationAboutAudiences}
-                    setAudiences={setInformationAboutAudiences}
-                    totalAudiences={totalAudiences}
-                    paramsSearch={paramsSearch}
-                    activeTable={activeTable}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                />
+                {isLoading
+                    ?
+                    <AudiencesTable
+                        audiences={InformationAboutAudiences}
+                        setAudiences={setInformationAboutAudiences}
+                        totalAudiences={totalAudiences}
+                        paramsSearch={paramsSearch}
+                        activeTable={activeTable}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                    />
+                    :
+                    <div className="col-6" style={{marginTop: 100}}>
+                        <Loader/>
+                    </div>
+                }
             </div>
         </div>
     );
