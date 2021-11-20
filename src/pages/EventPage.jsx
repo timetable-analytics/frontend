@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {DataDate, IdRow, placeEvent} from "../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdEvents, IdRow, placeEvent} from "../Constants/ChosenElement";
 import axios from "axios";
 import EventTable from "../component/UI/MyTable/EventTable";
 import {postChart} from "../API/postInformation";
@@ -61,6 +61,10 @@ const EventPage = () =>{
     ])*/
 
     const postEvent = async (place, startData, endData, IdArray, callback)=>{
+
+        IdEvents.clear();
+        ChosenElement.clear();
+
         let bodyFormData = new FormData();
         let IdMassif = Array.from(IdArray);
 
@@ -98,7 +102,7 @@ const EventPage = () =>{
         document.getElementById("graph").setAttribute("disabled","disabled");//Дисейбл кнопки
         setIsLoading(false);
 
-        await postChart(IdRow,param,date,postGraphCallback, postGraphErrorCallback);
+        await postChart(IdEvents,param,date,postGraphCallback, postGraphErrorCallback);
     }
 
     function GenerateRandomColor() {

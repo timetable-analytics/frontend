@@ -6,15 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="82ef72a4-838b-42fc-a2d7-6364653da87b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/postInformation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/postInformation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/Card/Card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/Card/Card.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/Card/Card.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/Card/Card.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyFormPanels/AudienceFormPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyFormPanels/AudienceFormPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyFormPanels/DisciplinesFormPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyFormPanels/DisciplinesFormPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyFormPanels/StGroupsFormPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyFormPanels/StGroupsFormPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyFormPanels/TeacherFormPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyFormPanels/TeacherFormPanel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Constants/ChosenElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Constants/ChosenElement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/UI/MyTable/EventTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyTable/EventTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/EventPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EventPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/mainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mainPage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +129,10 @@
       <workItem from="1637178188346" duration="1406000" />
       <workItem from="1637179852790" duration="3041000" />
       <workItem from="1637184233264" duration="658000" />
-      <workItem from="1637320329916" duration="8331000" />
+      <workItem from="1637320329916" duration="10521000" />
+      <workItem from="1637349610170" duration="1468000" />
+      <workItem from="1637352638973" duration="2260000" />
+      <workItem from="1637407394749" duration="635000" />
     </task>
     <servers />
   </component>

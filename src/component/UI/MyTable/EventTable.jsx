@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ChosenElement, DataDate, IdRow, placeEvent} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdEvents, IdRow, placeEvent} from "../../../Constants/ChosenElement";
 import Pagination from "../Pagination/Pagination";
 import {postEvent} from "../../../API/postInformation";
 import LineChart from "../Chart/LineChart";
@@ -16,7 +16,7 @@ const EventTable = ({events, setEvents, totalEvents, activeTable, currentPage, s
 
     const postEventsCallback = (events)=>{
         setEvents(events);
-        console.log(events);
+        //console.log(events);
     }
 
     return (
@@ -45,10 +45,15 @@ const EventTable = ({events, setEvents, totalEvents, activeTable, currentPage, s
                                     e.target.parentNode.classList.add("table-success");
                                     ChosenElement.add(index+(currentPage-1)*limitTable);
                                     //console.log(ChosenElement)
+                                    IdEvents.add(item.id);
+                                    console.log(IdEvents);
+
                                 } else{
                                     e.target.parentNode.classList.remove("table-success");
                                     ChosenElement.delete(index+(currentPage-1)*limitTable);
                                     //console.log(ChosenElement)
+                                    IdEvents.delete(item.id);
+                                    console.log(IdEvents);
                                 }
                             }}
                         >
