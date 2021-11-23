@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import {ChosenElement, DataDate, IdRow, placeEvent} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdEvents, IdRow, placeEvent} from "../../../Constants/ChosenElement";
 import Pagination from "../Pagination/Pagination";
 import {getDisciplines} from "../../../API/getInformation";
 import {useHistory} from "react-router-dom";
+import {postInformationFromEvents} from "../../../API/postInformation";
 
 const DisciplinesTable = ({disciplines, setDisciplines, totalDisciplines, paramsSearch, activeTable, currentPage, setCurrentPage}) => {
 
@@ -11,7 +12,10 @@ const DisciplinesTable = ({disciplines, setDisciplines, totalDisciplines, params
     async function changePage (page){
         setCurrentPage(page)
         //console.log(currentPage)
-        await getDisciplines(paramsSearch,limitTable,(page-1), getDisciplinesCallback);
+        if (IdEvents.size!==0){
+            await postInformationFromEvents(placeEvent.place,IdEvents,limitTable,(page-1), getDisciplinesCallback)
+        }else
+            await getDisciplines(paramsSearch,limitTable,(page-1), getDisciplinesCallback);
     }
 
     // what should we do with lest of teachers received from server

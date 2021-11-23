@@ -1,10 +1,24 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import {ChosenElement, DataDate, IdRow} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdEvents, IdRow, placeEvent} from "../../../Constants/ChosenElement";
 import TeachersTable from "../MyTable/TeachersTable";
 import Loader from "../Loader/Loader";
+import {postInformationFromEvents} from "../../../API/postInformation";
 
 const TeacherFormPanel = ({activeButton, setActiveButton}) => {
+
+    const IsFromEvent=()=>{
+        if (IdEvents.size !== 0){
+            ChosenElement.clear();
+            IdRow.clear();
+            setIsLoading(false);
+            postInformationFromEvents(placeEvent.place, IdEvents, 0, 0, getTeachersCallback)
+        }
+    }
+
+    useEffect(()=>{
+        IsFromEvent();
+    },[])
 
     const [isLoading, setIsLoading]=useState(true);
 

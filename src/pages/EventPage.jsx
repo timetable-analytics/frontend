@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ChosenElement, DataDate, IdEvents, IdRow, placeEvent} from "../Constants/ChosenElement";
 import axios from "axios";
 import EventTable from "../component/UI/MyTable/EventTable";
 import {postChart} from "../API/postInformation";
 import LineChart from "../component/UI/Chart/LineChart";
 import Loader from "../component/UI/Loader/Loader";
+import {useHistory} from "react-router-dom";
 
 const EventPage = () =>{
+
+    const router = useHistory();
 
     const [isLoading,setIsLoading]=useState(true);
 
@@ -19,6 +22,11 @@ const EventPage = () =>{
         time: undefined
     })
 
+    useEffect(()=>{
+        postEvent(placeEvent.place, DataDate.startDate, DataDate.endDate, IdRow, postEventCallback);
+        setIsLoading(false);
+    }, [])
+
     /*const [paramsSearch, setParamsSearch] = useState({
         building: undefined,
         fio: undefined,
@@ -29,6 +37,7 @@ const EventPage = () =>{
 
     const [totalEvents, setTotalEvents] = useState( undefined);
     const [currentPage, setCurrentPage] = useState(1);
+
     const [activeTable, setActiveTable] = useState(false);
 
     const [activeGraph, setActiveGraph] = useState(false);
@@ -155,26 +164,43 @@ const EventPage = () =>{
                                     onClick={()=>{
                                         postEvent(placeEvent.place, DataDate.startDate, DataDate.endDate, IdRow, postEventCallback);
                                         setIsLoading(false);
+                                        setActiveGraph(false);
                                     }}>
                                 Показать таблицу
                             </button>
                         </div>
 
                         <div className="mb-3 d-grid gap-2">
-                            <button type="button" className="btn btn-outline-dark" id="audiences">Аудитории</button>
+                            <button type="button" className="btn btn-outline-dark" id="audiences"
+                                    onClick={()=>{placeEvent.place="audiences"; router.push("/main/audiences")}}
+                            >
+                                Аудитории
+                            </button>
                         </div>
                         <div className="mb-3 d-grid gap-2">
-                            <button type="button" className="btn btn-outline-dark" id="educators" >Преподаватели</button>
+                            <button type="button" className="btn btn-outline-dark" id="educators"
+                                    onClick={()=>{placeEvent.place="educators"; router.push("/main/teachers")}}
+                            >
+                                Преподаватели
+                            </button>
                         </div>
                         <div className="mb-3 d-grid gap-2">
-                            <button type="button" className="btn btn-outline-dark" id="stGroups" >Учебные группы</button>
+                            <button type="button" className="btn btn-outline-dark" id="stGroups"
+                                    onClick={()=>{placeEvent.place="groups"; router.push("/main/student_groups")}}
+                            >
+                                Учебные группы
+                            </button>
                         </div>
                         <div className="mb-3 d-grid gap-2">
-                            <button type="button" className="btn btn-outline-dark" id="disciplines">Дисциплины</button>
+                            <button type="button" className="btn btn-outline-dark" id="disciplines"
+                                    onClick={()=>{placeEvent.place="disciplines"; router.push("/main/disciplines")}}
+                            >
+                                Дисциплины
+                            </button>
                         </div>
                         <div  style={{marginTop: 50}}>
                             <select className="form-select mb-3" style={{borderColor: "black"}} id="select_param">
-                                <option selected value="undefined" >Выберите параметр</option>
+                                <option selected value={undefined} >Выберите параметр</option>
                                 <option value="building">Здание</option>
                                 <option value="audience">Аудитории</option>
                                 <option value="faculty">Факультет</option>
@@ -184,7 +210,7 @@ const EventPage = () =>{
                             </select>
 
                             <select className="form-select mb-3" style={{borderColor: "black"}} id="select_date">
-                                <option selected value="undefined">Выберите временной промежуток</option>
+                                <option selected value={undefined}>Выберите временной промежуток</option>
                                 <option value="day">День</option>
                                 <option value="month">Месяц</option>
                                 <option value="semester">Семестр</option>

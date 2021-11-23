@@ -1,11 +1,24 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from "axios"
-import {ChosenElement, DataDate, IdRow} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdEvents, IdRow, placeEvent} from "../../../Constants/ChosenElement";
 import AudiencesTable from "../MyTable/AudiencesTable";
 import Loader from "../Loader/Loader";
+import {postInformationFromEvents} from "../../../API/postInformation";
 
 
 const AudienceFormPanel = ({activeButton,setActiveButton}) => {
+
+    const IsFromEvent=()=>{
+        if (IdEvents.size !== 0){
+            ChosenElement.clear();
+            IdRow.clear();
+            setIsLoading(false);
+            postInformationFromEvents(placeEvent.place, IdEvents, 0, 0, getAudiencesCallback)
+        }
+    }
+    useEffect(()=>{
+        IsFromEvent();
+    },[])
 
     const [isLoading, setIsLoading]=useState(true);//false-значит отображает иконку загрузки
 

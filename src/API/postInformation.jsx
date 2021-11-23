@@ -20,6 +20,21 @@ export const postEvent = async (place, startData, endData, IdArray, limit, page,
     });
 }
 
+export const postInformationFromEvents = async (place, IdArray, limit, page, callback)=>{
+    let IdMassif = Array.from(IdArray);
+
+    await axios({
+        method: "post",
+        url: `http://127.0.0.1:5000/${place}/search_from_timetable/?`+`limit=${limit}&`+ `page=${page}`,
+        data: IdMassif
+    }).then(response => {
+        callback(response.data.dataset, response.data.countRecords);
+    }).catch(error => {
+        alert(error.toString());
+    });
+}
+
+
 export const postChart = async (IdArray, param, date, callback, errorCallback)=>{
     let bodyFormData = new FormData();
     let IdMassif = Array.from(IdArray);

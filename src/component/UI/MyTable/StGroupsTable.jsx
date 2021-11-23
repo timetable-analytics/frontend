@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import {ChosenElement, DataDate, IdRow, placeEvent} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdEvents, IdRow, placeEvent} from "../../../Constants/ChosenElement";
 import Pagination from "../Pagination/Pagination";
 import {getStGroups} from "../../../API/getInformation";
 import {useHistory} from "react-router-dom";
+import {postInformationFromEvents} from "../../../API/postInformation";
 
 const StGroupsTable = ({stGroups, setStGroups, totalStGroups, paramsSearch, activeTable, currentPage, setCurrentPage}) => {
 
@@ -11,6 +12,9 @@ const StGroupsTable = ({stGroups, setStGroups, totalStGroups, paramsSearch, acti
     async function changePage (page){
         setCurrentPage(page)
         //console.log(currentPage)
+        if (IdEvents.size!==0){
+            await postInformationFromEvents(placeEvent.place,IdEvents,limitTable,(page-1), getStGroupsCallback)
+        }else
         await getStGroups(paramsSearch, limitTable ,(page-1), getStGroupsCallback);
     }
 

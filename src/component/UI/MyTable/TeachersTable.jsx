@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import {ChosenElement, DataDate, IdRow, placeEvent} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdEvents, IdRow, placeEvent} from "../../../Constants/ChosenElement";
 import Pagination from "../Pagination/Pagination";
 import {getTeachers} from "../../../API/getInformation";
 import {useHistory} from "react-router-dom";
+import {postInformationFromEvents} from "../../../API/postInformation";
 
 const TeachersTable = ({teachers, setTeachers, totalTeachers, paramsSearch, activeTable, currentPage, setCurrentPage}) => {
 
@@ -11,6 +12,9 @@ const TeachersTable = ({teachers, setTeachers, totalTeachers, paramsSearch, acti
     async function changePage (page){
         setCurrentPage(page)
         //console.log(currentPage)
+        if (IdEvents.size!==0){
+            await postInformationFromEvents(placeEvent.place,IdEvents,limitTable,(page-1), getTeachersCallback)
+        }else
         await getTeachers(paramsSearch,limitTable,(page-1), getTeachersCallback);
     }
 

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {Table} from 'antd';
 import Pagination from "../Pagination/Pagination";
-import {ChosenElement, DataDate, IdRow, placeEvent} from "../../../Constants/ChosenElement";
+import {ChosenElement, DataDate, IdEvents, IdRow, placeEvent} from "../../../Constants/ChosenElement";
 import {getAudiences} from "../../../API/getInformation";
 import {useHistory} from "react-router-dom";
+import {postInformationFromEvents} from "../../../API/postInformation";
 
 const AudiencesTable = ({audiences, setAudiences, totalAudiences, paramsSearch, activeTable, currentPage, setCurrentPage}) => {
 
@@ -12,7 +12,10 @@ const AudiencesTable = ({audiences, setAudiences, totalAudiences, paramsSearch, 
     async function changePage (page){
         setCurrentPage(page)
         //console.log(currentPage)
-        await getAudiences(paramsSearch,limitTable,(page-1), getAudiencesCallback);
+        if (IdEvents.size!==0){
+            await postInformationFromEvents(placeEvent.place,IdEvents,limitTable,(page-1), getAudiencesCallback)
+        }else
+            await getAudiences(paramsSearch,limitTable,(page-1), getAudiencesCallback);
     }
 
     const getAudiencesCallback = (audiences) => {
