@@ -5,10 +5,10 @@ function GenerateRandomColor(index) {
         "navy", "olive","sienna","darkcyan", "deeppink",
         "indigo","lime","plum","aquamarine","black"
     ]
-    if (index<21){
+    if (index<20){
         return color[index];
     }else{
-        let r = function () { return Math.floor(Math.random()*256) };
+        let r = function () { return Math.floor(Math.random()*255) };
         return "rgb(" + r() + "," + r() + "," + r() + ")";
     }
 }

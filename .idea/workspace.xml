@@ -6,17 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="82ef72a4-838b-42fc-a2d7-6364653da87b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/postInformation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/postInformation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Constants/ChosenElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Constants/ChosenElement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyFormPanels/AudienceFormPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyFormPanels/AudienceFormPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyFormPanels/DisciplinesFormPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyFormPanels/DisciplinesFormPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyFormPanels/StGroupsFormPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyFormPanels/StGroupsFormPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyFormPanels/TeacherFormPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyFormPanels/TeacherFormPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyTable/AudiencesTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyTable/AudiencesTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyTable/DisciplinesTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyTable/DisciplinesTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyTable/StGroupsTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyTable/StGroupsTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/MyTable/TeachersTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/MyTable/TeachersTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/EventPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/EventPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/UI/Chart/FunctionsForChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/Chart/FunctionsForChart.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +133,8 @@
       <workItem from="1637407394749" duration="1955000" />
       <workItem from="1637427100460" duration="328000" />
       <workItem from="1637679716035" duration="10254000" />
+      <workItem from="1637761005078" duration="2251000" />
+      <workItem from="1637763986086" duration="299000" />
     </task>
     <servers />
   </component>
