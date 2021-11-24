@@ -6,6 +6,7 @@ import {postChart} from "../API/postInformation";
 import LineChart from "../component/UI/Chart/LineChart";
 import Loader from "../component/UI/Loader/Loader";
 import {useHistory} from "react-router-dom";
+import {GenerationDataForGraph} from "../component/UI/Chart/FunctionsForChart";
 
 const EventPage = () =>{
 
@@ -41,12 +42,15 @@ const EventPage = () =>{
     const [activeTable, setActiveTable] = useState(false);
 
     const [activeGraph, setActiveGraph] = useState(false);
-    const [labels, setLabels] = useState([1,2,3,4]);
+    const [labels, setLabels] = useState([]);
     const [datasets, setDatasets] = useState({
         label: undefined,
         data: []
     })
- /*   const[datasets, setDatasets] = useState([
+
+ /*
+   const [labels,setLabels]=useState([1,2,3,4]);
+   const[datasets, setDatasets] = useState([
         {
             label: "First",
             data: [10,20,30,40]
@@ -114,24 +118,7 @@ const EventPage = () =>{
         await postChart(IdEvents,param,date,postGraphCallback, postGraphErrorCallback);
     }
 
-    function GenerateRandomColor() {
-        let r = function () { return Math.floor(Math.random()*256) };
-        return "rgb(" + r() + "," + r() + "," + r() + ")";
-    }
-    function GenerationDataForGraph (datasets){
-        let Datasets=[];
-        for (let i=0; i<datasets.length;++i){
-            let dataset ={
-                label: datasets[i].label,
-                data: datasets[i].data,
-                fill: false,
-                borderColor: GenerateRandomColor(),
-                tension: 0.1
-            }
-            Datasets.push(dataset);
-        }
-        return Datasets;
-    }
+
 
     const postGraphCallback = async (labels, datasets)=>{
         await setLabels(labels);
