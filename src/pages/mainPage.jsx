@@ -32,7 +32,7 @@ const MainPage = () => {
                   route={()=> router.push("/main/disciplines")}
                   image={"https://img.icons8.com/ios/344/school.png"}
                   text={"Дисциплины"}
-                  text1={"info/info/info/info/info \n info/info/info/info/info \n info/info/info/info/info \n info/info/info/info/info  "}
+                  text1={"• Название дисциплины"}
 
             />
         </div>
