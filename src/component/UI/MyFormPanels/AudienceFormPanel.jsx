@@ -45,8 +45,8 @@ const AudienceFormPanel = ({activeButton,setActiveButton}) => {
             (number !== undefined ? `number=${number}&` : "")+
             (`limit=${10}&`)+
             ("page=0");
-        console.log('http://127.0.0.1:5000/audiences/search/?' + params);
-        axios.get('http://127.0.0.1:5000/audiences/search/?' + params)
+        console.log('http://96cd-217-197-0-75.ngrok.io/audiences/search/?' + params);
+        axios.get('http://96cd-217-197-0-75.ngrok.io/audiences/search/?' + params)
             .then(response => {
                 callback(response.data.audiences, response.data.countRecords);
             })

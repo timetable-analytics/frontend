@@ -39,8 +39,8 @@ const DisciplinesFormPanel = ({activeButton, setActiveButton}) => {
         let params = (name !== undefined ? `name=${name}&` : "") +
             (`limit=${10}&`)+
             ("page=0");
-        console.log('http://127.0.0.1:5000/disciplines/search/?' + params);
-        axios.get('http://127.0.0.1:5000/disciplines/search/?' + params)
+        console.log('http://96cd-217-197-0-75.ngrok.io/disciplines/search/?' + params);
+        axios.get('http://96cd-217-197-0-75.ngrok.io/disciplines/search/?' + params)
             .then(response => {
                 callback(response.data.disciplines, response.data.countRecords);
             })
