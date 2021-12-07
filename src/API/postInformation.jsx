@@ -45,7 +45,7 @@ export const postChart = async (IdArray, param, date, callback, errorCallback)=>
 
     await axios({
         method: "post",
-        url: 'http://05c8-217-197-0-75.ap.ngrok.io/timetable/graph',
+        url: 'http://05c8-217-197-0-75.ap.ngrok.io/timetable/graph/',
         data: bodyFormData
     }).then(response => {
         callback(response.data.labels, response.data.datasets);
