@@ -49,8 +49,8 @@ const StGroupsFormPanel = ({activeButton, setActiveButton}) => {
             (course !== undefined ? `course=${course}&` : "")+
             (`limit=${10}&`)+
             ("page=0");
-        console.log('http://96cd-217-197-0-75.ngrok.io/groups/search/?' + params);
-        axios.get('http://96cd-217-197-0-75.ngrok.io/groups/search/?' + params)
+        console.log('http://05c8-217-197-0-75.ap.ngrok.io/groups/search/?' + params);
+        axios.get('http://05c8-217-197-0-75.ap.ngrok.io/groups/search/?' + params)
             .then(response => {
                 callback(response.data.groups, response.data.countRecords);
             })
