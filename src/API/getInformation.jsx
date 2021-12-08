@@ -37,11 +37,13 @@ export const getTeachers = async (paramsSearch, limit, page, callback) => {
 // get stGroups from server with possible params faculty, program, number, course
 export const getStGroups = async (paramsSearch, limit, page, callback) => {
     let params = (paramsSearch.faculty !== undefined ? `faculty=${paramsSearch.faculty}&` : "") +
-        (paramsSearch.program !== undefined ? `program=${paramsSearch.program}&` : "") +
         (paramsSearch.name !== undefined ? `number=${paramsSearch.name}&` : "")+
         (paramsSearch.course !== undefined ? `course=${paramsSearch.course}&` : "")+
         (`limit=${limit}&`)+
         (`page=${page}`);
+
+    //(paramsSearch.program !== undefined ? `program=${paramsSearch.program}&` : "") +
+
     console.log('http://05c8-217-197-0-75.ap.ngrok.io/groups/search/?' + params);
     await axios.get('http://05c8-217-197-0-75.ap.ngrok.io/groups/search/?' + params)
         .then(response => {
