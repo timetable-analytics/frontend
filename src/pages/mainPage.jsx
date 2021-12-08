@@ -18,14 +18,14 @@ const MainPage = () => {
                   route={()=>router.push("/main/teachers")}
                   text={"Преподаватели"}
                   image={"https://img.icons8.com/ios/344/teacher.png"}
-                  text1={"• Факультет\n • Ф.И.О \n  • Должность "}
+                  text1={"• Факультет\n • Ф.И.О \n  • Должность \n  • Договор"}
 
             />
             <Card style={{marginTop: -500, marginLeft: 800}}
                   route={()=> router.push("/main/student_groups")}
                   image={"https://img.icons8.com/pastel-glyph/344/business-group.png"}
                   text={"Учебные группы"}
-                  text1={"• Факультет\n • Программа обучения \n  • Номер группы\n  • Курс "}
+                  text1={"• Факультет\n • Номер группы\n  • Курс "}
 
             />
             <Card style={{marginTop: 0, marginLeft: 800}}
