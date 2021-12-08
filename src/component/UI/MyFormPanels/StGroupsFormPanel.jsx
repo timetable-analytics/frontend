@@ -27,29 +27,30 @@ const StGroupsFormPanel = ({activeButton, setActiveButton}) => {
     const [informationAboutStGroups, setInformationAboutStGroups] = useState({
         id: undefined,
         faculty: undefined,
-        //program: undefined,
         name: undefined,
         course: undefined
     })
     const [paramsSearch, setParamsSearch] = useState({
         faculty: undefined,
-        //program: undefined,
         name: undefined,
         course: undefined
     })
+    //program: undefined,
 
     const [totalStGroups, setTotalStGroups] = useState( undefined);
     const [activeTable, setActiveTable] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
 
     // get stGroups from server with possible params faculty, program, name, course
-    const getStGroups = (faculty, program, name, course, callback) => {
+    const getStGroups = (faculty, name, course, callback) => {
         let params = (faculty !== undefined ? `faculty=${faculty}&` : "") +
-            //(program !== undefined ? `program=${program}&` : "") +
             (name !== undefined ? `name=${name}&` : "")+
             (course !== undefined ? `course=${course}&` : "")+
             (`limit=${10}&`)+
             ("page=0");
+
+        //(program !== undefined ? `program=${program}&` : "") +
+
         console.log('http://05c8-217-197-0-75.ap.ngrok.io/groups/search/?' + params);
         axios.get('http://05c8-217-197-0-75.ap.ngrok.io/groups/search/?' + params)
             .then(response => {
@@ -94,14 +95,16 @@ const StGroupsFormPanel = ({activeButton, setActiveButton}) => {
         document.getElementById("search").setAttribute("disabled","disabled");//Дисейбл кнопки
         setIsLoading(false);
 
+        //program !== "" ? program : undefined,
+
         getStGroups(faculty !== "" ? faculty : undefined,
-            //program !== "" ? program : undefined,
             name !== "" ? name : undefined,
             course !== "" ? course : undefined,
             getStGroupsCallback);
 
-        setParamsSearch({faculty: faculty !== "" ? faculty : undefined,
-            //program: program !== "" ? program : undefined,
+        //program: program !== "" ? program : undefined,
+        setParamsSearch({
+            faculty: faculty !== "" ? faculty : undefined,
             name: name !=="" ? name :undefined,
             course: course !=="" ? course :undefined
         })
