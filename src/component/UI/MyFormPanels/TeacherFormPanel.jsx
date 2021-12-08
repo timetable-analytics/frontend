@@ -130,7 +130,7 @@ const TeacherFormPanel = ({activeButton, setActiveButton}) => {
                         <div className="mb-3">
                             <label  className="form-label">Факультет</label>
                             <input type="text" className="form-control" id="faculty"
-                                   placeholder="ПМ-ПУ"
+                                   placeholder="Факультет прикладной математики-процессов управления"
                             />
                         </div>
 
