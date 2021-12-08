@@ -7,12 +7,13 @@ import {postInformationFromEvents} from "../../../API/postInformation";
 
 const DisciplinesFormPanel = ({activeButton, setActiveButton}) => {
 
-    const IsFromEvent=()=>{
+    const IsFromEvent= async ()=>{
         if (IdEvents.size !== 0){
             ChosenElement.clear();
             IdRow.clear();
+            placeEvent.place="disciplines";
             setIsLoading(false);
-            postInformationFromEvents(placeEvent.place, IdEvents, 0, 0, getDisciplinesCallback)
+            await postInformationFromEvents(placeEvent.place, IdEvents, 10, 0, getDisciplinesCallback)
         }
     }
 
@@ -70,6 +71,7 @@ const DisciplinesFormPanel = ({activeButton, setActiveButton}) => {
 
         await ChosenElement.clear();
         await IdRow.clear();
+        await IdEvents.clear();
         DataDate.startDate = undefined;
         DataDate.endDate = undefined;
         //console.log(ChosenElement);

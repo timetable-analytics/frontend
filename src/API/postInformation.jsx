@@ -22,11 +22,13 @@ export const postEvent = async (place, startData, endData, IdArray, limit, page,
 
 export const postInformationFromEvents = async (place, IdArray, limit, page, callback)=>{
     let IdMassif = Array.from(IdArray);
+    let bodyFormData = new FormData();
+    bodyFormData.append("id", IdMassif)
 
     await axios({
         method: "post",
         url: `http://05c8-217-197-0-75.ap.ngrok.io/${place}/search_from_timetable/?`+`limit=${limit}&`+ `page=${page}`,
-        data: IdMassif
+        data: bodyFormData
     }).then(response => {
         callback(response.data.dataset, response.data.countRecords);
     }).catch(error => {

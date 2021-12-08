@@ -8,12 +8,13 @@ import {postInformationFromEvents} from "../../../API/postInformation";
 
 const AudienceFormPanel = ({activeButton,setActiveButton}) => {
 
-    const IsFromEvent=()=>{
+    const IsFromEvent= async ()=>{
         if (IdEvents.size !== 0){
             ChosenElement.clear();
             IdRow.clear();
+            placeEvent.place = "audiences";
             setIsLoading(false);
-            postInformationFromEvents(placeEvent.place, IdEvents, 0, 0, getAudiencesCallback)
+            await postInformationFromEvents(placeEvent.place, IdEvents, 10, 0, getAudiencesCallback)
         }
     }
     useEffect(()=>{
@@ -76,6 +77,7 @@ const AudienceFormPanel = ({activeButton,setActiveButton}) => {
 
         await ChosenElement.clear();
         await IdRow.clear();
+        await IdEvents.clear();
         DataDate.startDate = undefined;
         DataDate.endDate = undefined;
         //console.log(ChosenElement);

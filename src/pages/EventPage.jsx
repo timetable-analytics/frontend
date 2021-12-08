@@ -190,7 +190,6 @@ const EventPage = () =>{
                                 <option selected value={undefined} >Выберите параметр</option>
                                 <option value="building">Здание</option>
                                 <option value="audience">Аудитории</option>
-                                <option value="faculty">Факультет</option>
                                 <option value="fio">ФИО преподавателя</option>
                                 <option value="discipline">Предмет</option>
                                 <option value="group">Учебные группы</option>
