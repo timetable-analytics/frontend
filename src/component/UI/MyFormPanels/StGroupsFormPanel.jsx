@@ -27,13 +27,13 @@ const StGroupsFormPanel = ({activeButton, setActiveButton}) => {
     const [informationAboutStGroups, setInformationAboutStGroups] = useState({
         id: undefined,
         faculty: undefined,
-        program: undefined,
+        //program: undefined,
         name: undefined,
         course: undefined
     })
     const [paramsSearch, setParamsSearch] = useState({
         faculty: undefined,
-        program: undefined,
+        //program: undefined,
         name: undefined,
         course: undefined
     })
@@ -45,7 +45,7 @@ const StGroupsFormPanel = ({activeButton, setActiveButton}) => {
     // get stGroups from server with possible params faculty, program, name, course
     const getStGroups = (faculty, program, name, course, callback) => {
         let params = (faculty !== undefined ? `faculty=${faculty}&` : "") +
-            (program !== undefined ? `program=${program}&` : "") +
+            //(program !== undefined ? `program=${program}&` : "") +
             (name !== undefined ? `name=${name}&` : "")+
             (course !== undefined ? `course=${course}&` : "")+
             (`limit=${10}&`)+
@@ -87,7 +87,7 @@ const StGroupsFormPanel = ({activeButton, setActiveButton}) => {
         //console.log(ChosenElement);
 
         let faculty = document.getElementById("faculty").value;
-        let program = document.getElementById("program").value;
+        //let program = document.getElementById("program").value;
         let name = document.getElementById("name").value;
         let course = document.getElementById("course").value;
 
@@ -95,13 +95,13 @@ const StGroupsFormPanel = ({activeButton, setActiveButton}) => {
         setIsLoading(false);
 
         getStGroups(faculty !== "" ? faculty : undefined,
-            program !== "" ? program : undefined,
+            //program !== "" ? program : undefined,
             name !== "" ? name : undefined,
             course !== "" ? course : undefined,
             getStGroupsCallback);
 
         setParamsSearch({faculty: faculty !== "" ? faculty : undefined,
-            program: program !== "" ? program : undefined,
+            //program: program !== "" ? program : undefined,
             name: name !=="" ? name :undefined,
             course: course !=="" ? course :undefined
         })
@@ -111,9 +111,9 @@ const StGroupsFormPanel = ({activeButton, setActiveButton}) => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-3">
+                <div className="col-3 mt-3">
 
-                    <div style={{marginTop: 15}} className="mb-3">
+                    {/* <div style={{marginTop: 15}} className="mb-3">
                         <button className={activeButton ? "roundB active" : "roundB"}
                                 onClick={() => setActiveButton(true)}
                         />
@@ -123,7 +123,7 @@ const StGroupsFormPanel = ({activeButton, setActiveButton}) => {
                                 onClick={() => setActiveButton(false)}
                         />
                         <label>Фильтр</label>
-                    </div>
+                    </div>*/}
                     
                     <form>
                         <div className="mb-3">
@@ -132,12 +132,12 @@ const StGroupsFormPanel = ({activeButton, setActiveButton}) => {
                                    placeholder="ПМ-ПУ"
                             />
                         </div>
-                        <div className="mb-3">
+                        {/*<div className="mb-3">
                             <label  className="form-label">Программа обучения</label>
                             <input type="text" className="form-control" id="program"
                                    placeholder="Программирование и информационные технологии"
                             />
-                        </div>
+                        </div>*/}
                         <div className="mb-3">
                             <label  className="form-label">Номер группы</label>
                             <input type="text" className="form-control" id="name"

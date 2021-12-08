@@ -51,7 +51,7 @@ const StGroupsTable = ({stGroups, setStGroups, totalStGroups, paramsSearch, acti
                     <tr>
                         <th scope="col">№</th>
                         <th scope="col">Факультет</th>
-                        <th scope="col">Программа</th>
+                        {/*<th scope="col">Программа</th>*/}
                         <th scope="col">Номер группы</th>
                         <th scope="col">Курс</th>
                     </tr>
@@ -81,7 +81,7 @@ const StGroupsTable = ({stGroups, setStGroups, totalStGroups, paramsSearch, acti
                         >
                             <td>{index+1+(currentPage-1)*limitTable}</td>
                             <td>{item.faculty}</td>
-                            <td>{item.program}</td>
+                            {/*<td>{item.program}</td>*/}
                             <td>{item.name}</td>
                             <td>{item.course}</td>
                         </tr>

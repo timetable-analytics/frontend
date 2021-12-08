@@ -53,7 +53,7 @@ const TeachersTable = ({teachers, setTeachers, totalTeachers, paramsSearch, acti
                         <th scope="col">Факультет</th>
                         <th scope="col">Ф.И.О.</th>
                         <th scope="col">Должность</th>
-                        <th scope="col">Степень</th>
+                        <th scope="col">Договор</th>
                     </tr>
                     </thead>
                     <tbody>

@@ -103,9 +103,9 @@ const AudienceFormPanel = ({activeButton,setActiveButton}) => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-3 ">
+                <div className="col-3 mt-3">
 
-                    <div style={{marginTop: 15}} className="mb-3">
+                    {/* <div style={{marginTop: 15}} className="mb-3">
                         <button className={activeButton ? "roundB active" : "roundB"}
                                 onClick={() => setActiveButton(true)}
                         />
@@ -115,7 +115,7 @@ const AudienceFormPanel = ({activeButton,setActiveButton}) => {
                                 onClick={() => setActiveButton(false)}
                         />
                         <label>Фильтр</label>
-                    </div>
+                    </div>*/}
 
                     <form>
 
