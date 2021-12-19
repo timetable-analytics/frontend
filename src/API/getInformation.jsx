@@ -43,7 +43,7 @@ export const getStGroups = async (paramsSearch, limit, page, callback) => {
         (`page=${page}`);
 
     //(paramsSearch.program !== undefined ? `program=${paramsSearch.program}&` : "") +
-К
+
     console.log('http://1042-217-197-0-75.ngrok.io/groups/search/?' + params);
     await axios.get('http://1042-217-197-0-75.ngrok.io/groups/search/?' + params)
         .then(response => {
