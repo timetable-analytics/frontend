@@ -51,8 +51,8 @@ const StGroupsFormPanel = ({activeButton, setActiveButton}) => {
 
         //(program !== undefined ? `program=${program}&` : "") +
 
-        console.log('http://05c8-217-197-0-75.ap.ngrok.io/groups/search/?' + params);
-        axios.get('http://05c8-217-197-0-75.ap.ngrok.io/groups/search/?' + params)
+        console.log('http://1042-217-197-0-75.ngrok.io/groups/search/?' + params);
+        axios.get('http://1042-217-197-0-75.ngrok.io/groups/search/?' + params)
             .then(response => {
                 callback(response.data.groups, response.data.countRecords);
             })

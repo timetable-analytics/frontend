@@ -8,10 +8,10 @@ export const postEvent = async (place, startData, endData, IdArray, limit, page,
     bodyFormData.append("startData", startData);
     bodyFormData.append("endData",endData);
     bodyFormData.append("id", IdMassif);
-    console.log('http://05c8-217-197-0-75.ap.ngrok.io/timetable/search/?'+`limit=${limit}&`+ `page=${page}`);
+    console.log('http://1042-217-197-0-75.ngrok.io/timetable/search/?'+`limit=${limit}&`+ `page=${page}`);
     await axios({
         method: "post",
-        url: 'http://05c8-217-197-0-75.ap.ngrok.io/timetable/search/?'+`limit=${limit}&`+ `page=${page}`,
+        url: 'http://1042-217-197-0-75.ngrok.io/timetable/search/?'+`limit=${limit}&`+ `page=${page}`,
         data: bodyFormData
     }).then(response => {
         callback(response.data.timetables);
@@ -27,7 +27,7 @@ export const postInformationFromEvents = async (place, IdArray, limit, page, cal
 
     await axios({
         method: "post",
-        url: `http://05c8-217-197-0-75.ap.ngrok.io/${place}/search_from_timetable/?`+`limit=${limit}&`+ `page=${page}`,
+        url: `http://1042-217-197-0-75.ngrok.io/${place}/search_from_timetable/?`+`limit=${limit}&`+ `page=${page}`,
         data: bodyFormData
     }).then(response => {
         callback(response.data.dataset, response.data.countRecords);
@@ -47,7 +47,7 @@ export const postChart = async (IdArray, param, date, callback, errorCallback)=>
 
     await axios({
         method: "post",
-        url: 'http://05c8-217-197-0-75.ap.ngrok.io/timetable/graph/',
+        url: 'http://1042-217-197-0-75.ngrok.io/timetable/graph/',
         data: bodyFormData
     }).then(response => {
         callback(response.data.labels, response.data.datasets);

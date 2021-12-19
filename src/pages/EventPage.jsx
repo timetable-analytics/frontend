@@ -88,7 +88,7 @@ const EventPage = () =>{
 
         await axios({
             method: "post",
-            url: 'http://05c8-217-197-0-75.ap.ngrok.io/timetable/search/?'+`limit=10&`+ `page=0`,
+            url: 'http://1042-217-197-0-75.ngrok.io/timetable/search/?'+`limit=10&`+ `page=0`,
             data: bodyFormData
         }).then(response => {
             callback(response.data.timetables, response.data.countRecords);

@@ -50,8 +50,8 @@ const TeacherFormPanel = ({activeButton, setActiveButton}) => {
             (degree !== undefined ? `degree=${degree}&` : "")+
             (`limit=${10}&`)+
             ("page=0");
-        console.log('http://05c8-217-197-0-75.ap.ngrok.io/educators/search/?' + params);
-        axios.get('http://05c8-217-197-0-75.ap.ngrok.io/educators/search/?' + params)
+        console.log('http://1042-217-197-0-75.ngrok.io/educators/search/?' + params);
+        axios.get('http://1042-217-197-0-75.ngrok.io/educators/search/?' + params)
             .then(response => {
                 callback(response.data.educators, response.data.countRecords);
             })

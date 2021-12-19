@@ -6,8 +6,8 @@ export const getAudiences = async (paramsSearch,limit, page, callback) => {
         (paramsSearch.number !== undefined ? `number=${paramsSearch.number}&` : "")+
         (`limit=${limit}&`)+
         (`page=${page}`);
-    console.log('http://05c8-217-197-0-75.ap.ngrok.io/audiences/search/?' + params);
-    await axios.get('http://05c8-217-197-0-75.ap.ngrok.io/audiences/search/?' + params)
+    console.log('http://1042-217-197-0-75.ngrok.io/audiences/search/?' + params);
+    await axios.get('http://1042-217-197-0-75.ngrok.io/audiences/search/?' + params)
         .then(response => {
             callback(response.data.audiences);
         })
@@ -24,8 +24,8 @@ export const getTeachers = async (paramsSearch, limit, page, callback) => {
         (paramsSearch.degree !== undefined ? `degree=${paramsSearch.degree}&` : "")+
         (`limit=${limit}&`)+
         (`page=${page}`);
-    console.log('http://05c8-217-197-0-75.ap.ngrok.io/educators/search/?' + params);
-    await axios.get('http://05c8-217-197-0-75.ap.ngrok.io/educators/search/?' + params)
+    console.log('http://1042-217-197-0-75.ngrok.io/educators/search/?' + params);
+    await axios.get('http://1042-217-197-0-75.ngrok.io/educators/search/?' + params)
         .then(response => {
             callback(response.data.educators);
         })
@@ -43,9 +43,9 @@ export const getStGroups = async (paramsSearch, limit, page, callback) => {
         (`page=${page}`);
 
     //(paramsSearch.program !== undefined ? `program=${paramsSearch.program}&` : "") +
-
-    console.log('http://05c8-217-197-0-75.ap.ngrok.io/groups/search/?' + params);
-    await axios.get('http://05c8-217-197-0-75.ap.ngrok.io/groups/search/?' + params)
+К
+    console.log('http://1042-217-197-0-75.ngrok.io/groups/search/?' + params);
+    await axios.get('http://1042-217-197-0-75.ngrok.io/groups/search/?' + params)
         .then(response => {
             callback(response.data.groups);
         })
@@ -59,8 +59,8 @@ export const getDisciplines = async (paramsSearch, limit, page, callback) => {
     let params = (paramsSearch.name !== undefined ? `name=${paramsSearch.name}&` : "") +
         (`limit=${limit}&`)+
         (`page=${page}`);
-    console.log('http://05c8-217-197-0-75.ap.ngrok.io/disciplines/search/?' + params);
-    await axios.get('http://05c8-217-197-0-75.ap.ngrok.io/disciplines/search/?' + params)
+    console.log('http://1042-217-197-0-75.ngrok.io/disciplines/search/?' + params);
+    await axios.get('http://1042-217-197-0-75.ngrok.io/disciplines/search/?' + params)
         .then(response => {
             callback(response.data.disciplines);
         })
